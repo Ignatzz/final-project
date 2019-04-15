@@ -10,5 +10,3 @@ React based app looking at the Google Books API and returning information on aut
 * JavaScript
 * Bootstrap
 * Axios
-
-Email: ryan.t.jae@gmail.com
