@@ -1,6 +1,8 @@
-# React Google Books Search
+# Penn LPS Coding Boot Camp Final Project
 
-React based app looking at the Google Books API and returning information on authors, titles, and subjects.
+# By Brain Carter-Waites, Sam Hanson, and Martin Sandeen
+
+React based RPG game utilizing the following technologies
 
 * React
 * MongoDB
@@ -10,3 +12,5 @@ React based app looking at the Google Books API and returning information on aut
 * JavaScript
 * Bootstrap
 * Axios
+* Howler.js
+
