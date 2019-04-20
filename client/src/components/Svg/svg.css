@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html, body{
+  height: 100%;
+  font-weight: 800;
+}
+
+
+
+svg {
+    display: block;
+    font: 'Montserrat';
+    font-size: 14em;
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+    margin: 50px;	
+
+}
+#t3 {
+    margin-top: 50em;
+}
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #4D163D;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #840037;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #BD0034;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: white;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: blue;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
+
+h2 {
+    font-family: 'Dokdo', cursive;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold; 
+ }
+
+.container {
+    height: 100%;
+    align-content: center;
+
+}
+/* 
+.card {
+    background-image: url("../images/loginImage.png");
+    height: 80%;.....
+    margin: 0 auto;
+    float: none;
+    padding: 20px;
+    margin-bottom: 10px;
+     width: 80%;
+    align-content: center;
+    font-size: 60px;
+
+ } */
+
+.btn {
+    width: 10em;
+    font-size: 60px;
+    border-radius: 38px;
+
+} 
+
+.form-group {
+    width: 80%;
+    margin-left: 2em;
+    box-sizing: border-box;
+    font-size: 60px;
+    color: ghostwhite;
+   
+}
+
+.form-control {
+    font-size: 60px;
+    height: 70px;
+    background-color: dimgray;
+    box-sizing: border-box;
+    border-width: 4px;
+    
+}
+
