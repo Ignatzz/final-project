@@ -1,7 +1,10 @@
 const router = require("express").Router();
-const bookRoutes = require("./books");
+const playerRoutes = require("./players");
+const eventRoutes = require("./events");
+const itemRoutes = require("./items");
 
-// Book routes
-router.use("/books", bookRoutes);
+router.use("/players", playerRoutes); // Not yet implemented
+router.use("/events", eventRoutes);   // Not yet implemented
+router.use("/items", itemRoutes);     // Not yet implemented
 
 module.exports = router;

@@ -2,7 +2,9 @@ import React from "react";
 import Login from "./pages/Login";
 import Main from "./pages/Main"
 import SignUp from "./pages/SignUp"
-// import NoMatch from "./pages/NoMatch";
+
+import Nav from "./components/Nav";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
