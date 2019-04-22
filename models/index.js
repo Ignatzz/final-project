@@ -1,3 +1,5 @@
 module.exports = {
-    Book: require("./book")
+  Event: require("./events"),
+  Player: require("./players"),
+  Item: require("./items")
 };
