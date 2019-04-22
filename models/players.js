@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const PlayerSchema = new Schema({
   name: String,
-  health: Integer,
-  ap: Integer,
-  strength: Integer,
-  toughness: Integer
+  health: String,
+  ap: String,
+  strength: String,
+  toughness: String
 });
 
 const Player = mongoose.model("Player", PlayerSchema);

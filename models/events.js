@@ -5,11 +5,11 @@ const EventSchema = new Schema({
   title: String,
   subtext: String,
   picURL: String,
-  health: Integer,
-  ap: Integer,
-  strength: Integer,
-  toughness: Integer,
-  companion: Integer
+  health: String,
+  ap: String,
+  strength: String,
+  toughness: String,
+  companion: String
 });
 
 const Event = mongoose.model("Event", EventSchema);
