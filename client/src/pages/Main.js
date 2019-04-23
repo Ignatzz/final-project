@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import {Row, Col} from "../components/rollCol"
 import Svg from "../components/Svg/Svg"
+import "./signup.css"
 import {NewGameBtn, ContinueBtn, AboutBtn} from "../components/MainMenu"
 
 class Main extends Component {
@@ -12,37 +13,9 @@ class Main extends Component {
 
   };
 
-  // grab the books from /api/books
-  // componentDidMount() {
-  //   API.getBooks()
-  //     .then(res => this.setState(
-  //       { 
-  //         books: res.data 
-  //       },
-  //       console.log(res.data)
-  //       )
-  //     )
-  //     .catch(err => console.log(err));
-  // }
-
-  // // loads all books
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // // deletes a book
-  // handleDeleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // }
-
   render() {
     return (
+      <div className="signupDiv">
       <Container>
         <Svg />
         <Row>
@@ -65,8 +38,8 @@ class Main extends Component {
           />
           </Col>
         </Row>
-
       </Container>
+      </div>
     );
   }
 }

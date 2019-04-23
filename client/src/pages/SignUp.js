@@ -3,6 +3,7 @@ import Container from "../components/Container";
 import {Row, Col} from "../components/rollCol";
 import {UsernameInput, PasswordInput, EmailInput} from "../components/SignUpForm"
 import {ConfirmBtn} from "../components/ConfirmSignUp"
+import "./signup.css"
 
 class SignUp extends React.Component {
   state = {
@@ -28,8 +29,10 @@ handleFormSubmit = event => {
 
 render(){
   return (
+    <div className="signupDiv">
     <main>
-      <Container>
+      <div className="signupContainer">
+      <Container >
         <Row>
           <Col size="sm-12">
           <UsernameInput
@@ -62,7 +65,9 @@ render(){
           </Row>
         
       </Container>
+      </div>
       </main>
+      </div>
   )
 }
 

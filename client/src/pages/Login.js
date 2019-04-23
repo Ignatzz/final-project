@@ -5,6 +5,7 @@ import Svg from "../components/Svg/Svg"
 import {UsernameInput, PasswordInput} from "../components/LoginForm";
 import FormBtn from "../components/FormBtn/"
 import SignUpBtn from "../components/Btn";
+import "./login.css";
 
 
 class Login extends React.Component {
@@ -38,6 +39,7 @@ class Login extends React.Component {
 
   render() {
     return (
+      <div className="loginDiv">
       <main>
         <Svg />
       <Container>
@@ -67,6 +69,7 @@ class Login extends React.Component {
 
       </Container>
       </main>
+      </div>
     );
   }
 }
