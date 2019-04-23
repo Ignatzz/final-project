@@ -6,6 +6,7 @@ import RockyPage from "./pages/RockyPage";
 import LibertyPage from "./pages/LibertyPage";
 import OverworldPage from "./pages/OverworldPage";
 import FairmountPage from "./pages/FairmountPage";
+import SamTest from "./pages/SamTest";
 
 import Nav from "./components/Nav";
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route exact path="/rocky" component={RockyPage} />
           <Route exact path="/liberty" component={LibertyPage} />
           <Route exact path="/fairmount" component={FairmountPage} />
+          <Route exact path="/samtest" component={SamTest} />
         </Switch>
       </div>
     </Router>
