@@ -1,0 +1,66 @@
+body, html {
+    height: 100%;
+  }
+
+  
+  
+  .fairmountStage { 
+      background-image: url("../../../images/fairmountpixel4.png");
+      min-height: 875px;
+      min-width: 375px;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+      
+    .frolfDiv{
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      min-width: 40%;
+      bottom: 0px;
+      left: 50%;
+    
+    }
+
+    .frolfBoy{
+      height: 80%;
+      width: 200px;
+ 
+    }
+  
+
+
+
+    @media only screen and (max-width: 600px) {
+   .fairmountStage { 
+      min-height: 734px;
+     
+    }
+    
+    .frolfDiv{
+      width: 293px;
+      left: 650px;
+      left: 40%;
+    }
+
+    .frolfBoy{
+      height: 80%;
+      width: 180px;
+ 
+    }
+  
+  
+  
+  }
+  
+        
+   
+
+
+
+
+  

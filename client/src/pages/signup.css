@@ -1,18 +1,22 @@
+.signupContainer {
+  padding-top: 80px;
+}
+
+
 .signupDiv { 
-  /* The image used */
-  background-image: url("../images/loginImage.png");
-
-  /* Full height */
+  background-image: url("../../src/images/loginImage.png");
   height: 100%; 
-  min-height: 734px;
+  width: 100%;
+  min-height: 875px;
   min-width: 342px;
-
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.signupContainer {
-  padding-top: 80px;
-}
+@media only screen and (max-width: 600px) {
+.signupDiv { 
+  min-height: 734px;
+ 
+}}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Overworld from "../components/Overworld"
+import Overworld from "../components/Stages/Overworld"
   
 const OverworldPage = () => {
     return (
