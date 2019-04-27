@@ -39,6 +39,8 @@ class SamTest extends Component {
   // }
 
   makeUser = () => {
+    console.log("Events:");
+    console.log(this.state.events);
     console.log("Making user");
     var req = {
       name: "Sam",
@@ -55,6 +57,14 @@ class SamTest extends Component {
         console.log(res.data)
       )
       .catch(err => console.log(err));
+
+
+    API.getEvents()
+      .then(res =>
+        console.log(res.data)
+      )
+      .catch(err => console.log(err));
+
   };
 
   handleDeleteEvent = id => {

@@ -7,6 +7,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  removeAll: function(req, res) {
+    db.Item
+      .remove({}, function(err) {
+        console.log('items collection removed')
+      });
+  },
   create: function(req, res) {
     db.Item
       .create(req.body)

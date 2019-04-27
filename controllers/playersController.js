@@ -7,6 +7,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  removeAll: function(req, res) {
+    db.Player
+      .remove({}, function(err) {
+        console.log('players collection removed')
+      });
+  },
   create: function(req, res) {
     db.Player
       .create(req.body)

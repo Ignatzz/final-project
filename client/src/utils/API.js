@@ -14,18 +14,8 @@ export default {
   deletePlayer: function(id) {
     return axios.delete("/api/players/"+id);
   },
-  // Items
-  getItems: function() {
-    return axios("/api/items");
-  },
-  saveItem: function(itemData) {
-    return axios.post("/api/items", itemData);
-  },
-  getItem: function(id) {
-    return axios("/api/items/"+id);
-  },
-  deleteItem: function(id) {
-    return axios.delete("/api/items/"+id);
+  deletePlayers: function() {
+    return axios.delete("/api/players")
   },
   // Events
   getEvents: function() {
@@ -39,5 +29,24 @@ export default {
   },
   deleteEvent: function(id) {
     return axios.delete("/api/events/"+id);
+  },
+  deleteEvents: function() {
+    return axios.delete("/api/events")
+  },
+  // Items
+  getItems: function() {
+    return axios("/api/items");
+  },
+  saveItem: function(itemData) {
+    return axios.post("/api/items", itemData);
+  },
+  getItem: function(id) {
+    return axios("/api/items/"+id);
+  },
+  deleteItem: function(id) {
+    return axios.delete("/api/items/"+id);
+  },
+  deleteItems: function() {
+    return axios.delete("/api/items")
   }
 }

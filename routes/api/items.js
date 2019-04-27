@@ -4,7 +4,8 @@ const itemsController = require("../../controllers/itemsController");
 // "/api/items"
 router.route("/")
   .get(itemsController.findAll)     // Not Tested
-  .post(itemsController.create);    // Not Tested
+  .post(itemsController.create)
+  .delete(itemsController.removeAll);    // Not Tested
 
 // "/api/items/:id"
 router.route("/:id")

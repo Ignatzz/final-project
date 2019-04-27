@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EventSchema = new Schema({
+  id: String,
   title: String,
   subtext: String,
   picURL: String,
@@ -9,7 +10,7 @@ const EventSchema = new Schema({
   ap: String,
   strength: String,
   toughness: String,
-  companion: String
+  specialCode: String
 });
 
 const Event = mongoose.model("Event", EventSchema);
