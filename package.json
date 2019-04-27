@@ -22,6 +22,15 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.4.1",
-    "react-router-dom": "^4.3.1"
-  }
+    "react-router-dom": "^4.3.1",
+    "react-timeout": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ignatzz/final-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ignatzz/final-project/issues"
+  },
+  "homepage": "https://github.com/Ignatzz/final-project#readme"
 }

@@ -4,7 +4,8 @@ const playersController = require("../../controllers/playersController");
 // "/api/players"
 router.route("/")
   .get(playersController.findAll)     // Not Tested
-  .post(playersController.create);    // Not Tested
+  .post(playersController.create)    // Not Tested
+  .delete(playersController.removeAll);
 
 // "/api/players"
 router.route("/:id")

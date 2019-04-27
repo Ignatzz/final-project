@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
+  id: String,
   title: String,
   subtext: String,
   picURL: String,
@@ -9,7 +10,7 @@ const ItemSchema = new Schema({
   ap: String,
   strength: String,
   toughness: String,
-  companion: String
+  specialCode: String
 });
 
 const Item = mongoose.model("Item", ItemSchema);
