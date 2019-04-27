@@ -1,9 +1,16 @@
 import React from "react";
 import Container from "../components/Container";
 import {Row, Col} from "../components/rollCol";
-import {UsernameInput, PasswordInput, EmailInput} from "../components/SignUpForm"
-import {ConfirmBtn} from "../components/ConfirmSignUp"
-import "./signup.css"
+import {UsernameInput, PasswordInput, EmailInput} from "../components/SignUpForm";
+import {ConfirmBtn} from "../components/ConfirmSignUp";
+import "./signup.css";
+import {Howl, Howler} from 'howler';
+
+const sound = new Howl({
+    src: "../sounds/eyetiger.mp3",
+    autoplay: true,
+    volume: 0.5
+        });
 
 class SignUp extends React.Component {
   state = {

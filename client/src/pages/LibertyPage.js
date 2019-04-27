@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
-import Liberty from "../components/Liberty";
+import Liberty from "../components/Stages/Liberty";
 
 
 
