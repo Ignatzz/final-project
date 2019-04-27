@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+  }
+    
+    .overworldStage { 
+      background-image: url("../../../images/overworldmap.jpg");
+      min-height: 734px;
+      min-width: 342px;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .overworldStage { 
+        background-image: url("../../../images/rocky.png");
+        min-height: 875px;
+        min-width: 342px;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    
+      @media only screen and (max-width: 600px) {
+     .overworldStage { 
+        min-height: 734px;
+       
+      }}
+    
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color:purple;
+    border-radius: 50%;
+    display: inline-block;
+    }
+
+.artDot {
+    position: relative;
+    right: 225px;
+    bottom:150px;
+}
+
+.stadiumDot {
+    position: relative;
+    right: 180px;
+    top:250px;
+}
+
+.libertyDot {
+    position: relative;
+    right: 125px;
+    bottom:15px;
+}
+
+.fairmountDot {
+    position: relative;
+    right: 315px;
+    bottom:180px;
+}

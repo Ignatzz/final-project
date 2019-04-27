@@ -58,6 +58,7 @@ class SamTest extends Component {
       )
       .catch(err => console.log(err));
 
+
     API.getEvents()
       .then(res =>
         console.log(res.data)

@@ -1,0 +1,25 @@
+body, html {
+  height: 100%;
+}
+
+
+  .rockyStage { 
+    background-image: url("../../../images/rocky.png");
+    min-height: 875px;
+    min-width: 342px;
+    height: 100%;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media only screen and (max-width: 600px) {
+ .rockyStage { 
+    min-height: 734px;
+   
+  }}
+
+
+   

@@ -33,4 +33,8 @@
     "url": "https://github.com/Ignatzz/final-project/issues"
   },
   "homepage": "https://github.com/Ignatzz/final-project#readme"
+=======
+    "react-anime": "^2.2.0",
+    "react-router-dom": "^4.3.1"
+  }
 }
