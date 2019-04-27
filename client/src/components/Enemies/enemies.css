@@ -1,0 +1,41 @@
+.mummer{
+    height:70%;
+    width:200px;
+}
+
+.tourist{
+    height: 80%;
+    width: 320px;
+
+  }
+
+  .frolfBoy{
+    height: 80%;
+    width: 320px;
+  }
+  .gritty{
+    height: 80%;
+    width: 320px;
+  }
+
+  .touristDiv, .mummerDiv, .frolfDiv, .grittyDiv{
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    min-width: 40%;
+    bottom: 0px;
+    left: 100%;
+  }
+
+  @media only screen and (max-width: 600px) {
+  
+     
+     .touristDiv, .mummerDiv, .frolfDiv, .grittyDiv{
+       width: 293px;
+       left: 650px;
+    
+     }
+    
+   
+   
+   }
