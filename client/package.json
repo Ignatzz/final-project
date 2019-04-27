@@ -1,6 +1,6 @@
 {
-  "name": "googlebooks",
-  "version": "0.1.0",
+  "name": "googlebookas",
+  "version": "1.0.0",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
@@ -13,7 +13,7 @@
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "react-timeout": "1.2.0"
+    "react-timeout": "1.2.0",
     "react-transition-group": "^1.2.1"
   },
   "scripts": {
