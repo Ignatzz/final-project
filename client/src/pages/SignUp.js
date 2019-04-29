@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import Container from "../components/Container";
 import {Row, Col} from "../components/rollCol";
-import {UsernameInput, PasswordInput, EmailInput} from "../components/SignUpForm";
-import {ConfirmBtn} from "../components/ConfirmSignUp";
+import SignupForm from "../components/SignUpForm";
 import "./signup.css";
 import {Howl, Howler} from 'howler';
+import app from "../firebase/base"
 
 const sound = new Howl({
     src: "../sounds/eyetiger.mp3",
@@ -12,27 +12,34 @@ const sound = new Howl({
     volume: 0.5
         });
 
-class SignUp extends React.Component {
-  state = {
-    username: "",
-    password: "",
-    email: "",
-    signUp: false
-  }
+class SignUp extends Component {
+  handleSignUp = async event => {
+    event.preventDefault();
+    const { email, password} = event.target.elements;
+    try {
+      const user = await app
+      .auth()
+      .createUserWithEmailAndPassword(email.value, password.value);
+      this.props.history.push("/main");
+    } catch (error) {
+      alert(error)
+     }
+    }; 
 
-handleInputChange = event => {
-  const value = event.target.value;
-  const name = event.target.name;
-  this.setState({
-    [name]: value
-  });
-};
 
-handleFormSubmit = event => {
-  this.setState(() => ({
-    signUp: true
-  }))
-}
+// handleInputChange = event => {
+//   const value = event.target.value;
+//   const name = event.target.name;
+//   this.setState({
+//     [name]: value
+//   });
+// };
+
+// handleFormSubmit = event => {
+//   this.setState(() => ({
+//     signUp: true
+//   }))
+// }
 
 render(){
   return (
@@ -42,35 +49,9 @@ render(){
       <Container >
         <Row>
           <Col size="sm-12">
-          <UsernameInput
-          value={this.state}
-          onChange={this.state.handleInputChange}
-          />
+          <SignupForm onSubmit={this.handleSignUp} />
           </Col>
         </Row>
-        <Row>
-        <Col size="sm-12">
-        <PasswordInput
-        value={this.state}
-        onChange={this.state.handleInputChange}
-        />
-        </Col>
-        </Row>
-        <Row>
-          <Col size="sm-12">
-          <EmailInput
-          value={this.state}
-          onChange={this.state.handleInputChange}
-          />
-          </Col>
-        </Row>
-        <Row>
-          <Col size="sm-12">
-          {/* <ConfirmBtn
-          /> */}
-          </Col>
-          </Row>
-        
       </Container>
       </div>
       </main>
