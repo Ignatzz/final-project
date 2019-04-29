@@ -1,10 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 const Gameover = () => {
     return (
-        <div className="container">
+        <div className="Container">
         <span className="text1">Game Over</span>
-        <span className="text2">Try Again?</span>
+        <br />
+        <span className="text2">
+        <Link to="#">
+        Try Again
+        </Link>
+        </span>
+        <br />
+        <span className="text3">
+        <Link to="/main">
+        Exit
+        </Link>
+        </span>
         </div>
     )
 }

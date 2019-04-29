@@ -1,5 +1,6 @@
 import React from "react";
 import Gameover from "../components/Gameover/Gameover";
+import "./gameover.css"
 
 
 const GameoverPage = () => {
