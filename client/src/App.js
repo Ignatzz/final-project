@@ -21,7 +21,7 @@ function loadData() {
       console.log(utils.state);
     }
     .bind(this),
-    5000
+    10000
   );
 }
 loadData();

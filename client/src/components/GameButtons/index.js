@@ -5,10 +5,7 @@ import * as utils from "../../pages/SamTest"
 class GameButtonA extends React.Component {
   handleClick = () => {
     utils.playFrisbee();
-    
   }
-
-  
 
   render() {
     return (
@@ -25,7 +22,7 @@ class GameButtonB extends React.Component {
     utils.bikeRide();
   }
 
-  
+
 
   render() {
     return (
@@ -43,7 +40,7 @@ class GameButtonC extends React.Component {
    console.log("clickkkk", this);
   }
 
-  
+
 
   render() {
     return (
