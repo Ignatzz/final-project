@@ -21,6 +21,8 @@ var state = {
 // getStats()             - get stats
 // .state                 - returns all of the above varable
 // load()                 - load all of the events items and stats
+// regularAttack()
+// specialAttack()
 
 // Functions needed:
 // -Attack enemy (regular)
