@@ -4,7 +4,9 @@ import Fairmount from "../components/Stages/Fairmount"
 const FairmountPage = () => {
     return (
         <div >
-          <Fairmount></Fairmount>
+          
+          <Fairmount>
+          </Fairmount>
       
     </div>
     )

@@ -32,10 +32,10 @@
 }
 
 .actualAP {
-    background-color: darkorchid;
+    background-color: rgb(40, 10, 54);
 }
 
-.healthNumbers, .APnumbers, {
+.healthNumbers, .APnumbers {
     position: absolute;
     right: 45%
 }

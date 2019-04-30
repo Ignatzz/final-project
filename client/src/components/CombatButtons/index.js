@@ -1,9 +1,10 @@
 import React from "react";
 import "./combatbuttons.css"
+import * as utils from "../../pages/SamTest"
 
 class RegAttackButton extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+    utils.regularAttack();
   }
 
   
@@ -22,7 +23,7 @@ class RegAttackButton extends React.Component {
 
 class SpecAttackButton extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+    utils.specialAttack();
   }
 
   
