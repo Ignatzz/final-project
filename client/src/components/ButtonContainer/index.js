@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {GameButtonA, GameButtonB, GameButtonC} from "../GameButtons";
-import "./buttoncontainer.css"
+
 
 
 const button = [GameButtonA, GameButtonB, GameButtonC];

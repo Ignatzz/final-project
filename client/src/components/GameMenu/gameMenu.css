@@ -1,0 +1,107 @@
+
+
+.gameMenu {
+    width: 80%;
+    color:white;
+    background-color: rgb(8, 8, 114);
+    size: 24px;
+    display: inline-block;
+    border: solid;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gameMenuContainer {
+    margin:none;
+}
+
+.menuTitle {
+    font-size: 25px;
+    margin: 5px;
+}
+
+
+
+.gameMenuItemDiv, .gameMenuStatsDiv  {
+    border-top:solid;
+    text-align: center;
+    width: 50%;
+    display: inline-block;
+    position: relative;
+}
+.gameMenuStatsDiv  {
+border-left:solid;
+}
+
+.gameMenuItemDiv {
+    display: inline-block;
+}
+
+.itemTable, .statsTable {
+    width: 100%;
+}
+tr, div .itemTable, .statsTable, .gameMenuContainer{
+    text-align: center;
+    
+}
+
+.exitButton {
+    position:absolute;
+    bottom:5px;
+    right:5px;
+    padding: 5px;
+    border: solid;
+    font-size: 25px;
+    margin-top: 40px;
+}
+.soundMenu {
+    
+    position:absolute;
+    bottom:0px;
+    width: 50%;
+    border: solid;
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
+    margin-left: 15px;
+}
+.soundIcon1, .soundIcon2 {
+    margin-left: 35px;
+    margin-right: 65px;
+    width:5%;
+    height: 5%;
+}
+
+/* .music {
+    margin-right: 40px;
+} */
+
+.music, .effects, img{
+    text-align: center;
+    display: inline;
+    margin-left: 15px;
+}
+
+th, tr {
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .soundIcon1, .soundIcon2 {
+        margin-left: 2px;
+        margin-right: 12px;
+        width:9%;
+        height: 9%;
+    }
+    .music {
+        font-size: 17px;
+    }
+   
+   
+   
+   }
+   

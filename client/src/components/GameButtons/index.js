@@ -10,7 +10,7 @@ class GameButtonA extends React.Component {
 
   render() {
     return (
-      <button className="btn btn-dark buttonA" onClick={this.handleClick}>
+      <button className="buttonA" onClick={this.handleClick}>
         Play Frisbee Golf
       </button>
     );
@@ -27,7 +27,7 @@ class GameButtonB extends React.Component {
 
   render() {
     return (
-      <button className="btn btn-dark buttonB" onClick={this.handleClick}>
+      <button className="buttonB" onClick={this.handleClick}>
         Go for a bike ride
       </button>
     );
@@ -44,7 +44,7 @@ class GameButtonC extends React.Component {
 
   render() {
     return (
-      <button className="btn btn-dark buttonC" onClick={this.handleClick}>
+      <button className="buttonC" onClick={this.handleClick}>
        Take a Nap
       </button>
     );
