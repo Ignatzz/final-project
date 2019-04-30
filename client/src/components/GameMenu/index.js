@@ -1,14 +1,28 @@
 import React, {Component} from "react";
 import "./gameMenu.css"
 import soundIcon from "../../images/soundicon.png";
+import {Howl, Howler} from 'howler';
+import tiger from "../../sounds/eyetiger.mp3"
+
 
 class GameMenu extends Component {
+    SoundPlay = event => {
+        const Sound = new Howl({
+          src: tiger,
+          autoplay: true,
+          volume: 0.5,
+          loop: true
+              });
+      }
+    SoundToggle = event => {
+        console.log(this.Sound);
+      }
 
 render ()   {
 
     return (
         <div className = "gameMenu">
-            <div className = "menuTitle">Menu</div>
+        <div className = "menuTitle">Menu</div>
          <div className="gameMenuContainer row">
              <div className = "gameMenuItemDiv">  
              <table className="itemTable">
@@ -31,14 +45,17 @@ render ()   {
                  <tr>Toughness:</tr>
                  <br/>
                  <tr>XP:</tr>
-             </table>
+            </table>
+            <br/>
+                 <br/>
+                 <br/>
              </div>
              <div className="soundMenu">
                  <div className = "music row">
-                     Music <img className="soundIcon1" src={soundIcon} alt="soundIcon"></img>
+                     Music <img onClick={this.SoundPlay} className="soundIcon1" src={soundIcon} alt="soundIcon"></img>
                  </div>
                  <div className = "effects row">
-                     Effects <img className="soundIcon2" src={soundIcon} alt="soundIcon"></img>
+                     Effects <img onClick={(this.SoundToggle)}className="soundIcon2" src={soundIcon} alt="soundIcon"></img>
                  </div>
 
              </div>

@@ -1,15 +1,21 @@
 
 
 .gameMenu {
-    width: 90%;
-    margin-top: 45px;
+    width: 80%;
     color:white;
     background-color: rgb(8, 8, 114);
     size: 24px;
     display: inline-block;
     border: solid;
-    position: relative;
-    height: 500px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gameMenuContainer {
+    margin:none;
 }
 
 .menuTitle {
@@ -24,10 +30,10 @@
     text-align: center;
     width: 50%;
     display: inline-block;
+    position: relative;
 }
 .gameMenuStatsDiv  {
 border-left:solid;
-height: 335px;
 }
 
 .gameMenuItemDiv {
@@ -49,30 +55,53 @@ tr, div .itemTable, .statsTable, .gameMenuContainer{
     padding: 5px;
     border: solid;
     font-size: 25px;
+    margin-top: 40px;
 }
 .soundMenu {
     
     position:absolute;
-    bottom:60px;
-    padding: 5px;
+    bottom:0px;
+    width: 50%;
     border: solid;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     align-items: center;
     display: inline-block;
     margin-left: 15px;
 }
 .soundIcon1, .soundIcon2 {
+    margin-left: 35px;
+    margin-right: 65px;
     width:5%;
     height: 5%;
 }
 
-.music {
+/* .music {
     margin-right: 40px;
-}
+} */
 
 .music, .effects, img{
     text-align: center;
     display: inline;
     margin-left: 15px;
 }
+
+th, tr {
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .soundIcon1, .soundIcon2 {
+        margin-left: 2px;
+        margin-right: 12px;
+        width:9%;
+        height: 9%;
+    }
+    .music {
+        font-size: 17px;
+    }
+   
+   
+   
+   }
+   
