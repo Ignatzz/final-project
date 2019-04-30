@@ -6,13 +6,25 @@ import RockyPage from "./pages/RockyPage";
 import LibertyPage from "./pages/LibertyPage";
 import OverworldPage from "./pages/OverworldPage";
 import FairmountPage from "./pages/FairmountPage";
-import SamTest from "./pages/SamTest";
+import * as utils from "./pages/SamTest";
 import DataResetGet from "./pages/DataResetGet";
-
 
 import Nav from "./components/Nav";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+function loadData() {
+  utils.load();
+
+  setTimeout(
+    function() {
+      console.log(utils.state);
+    }
+    .bind(this),
+    5000
+  );
+}
+loadData();
 
 const App = () => {
   return (
@@ -27,7 +39,6 @@ const App = () => {
           <Route exact path="/rocky" component={RockyPage} />
           <Route exact path="/liberty" component={LibertyPage} />
           <Route exact path="/fairmount" component={FairmountPage} />
-          <Route exact path="/samtest" component={SamTest} />
           <Route exact path="/data" component={DataResetGet} />
         </Switch>
       </div>
