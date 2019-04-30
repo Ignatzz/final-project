@@ -31,6 +31,16 @@ body, html {
       width: 200px;
  
     }
+
+    .introNextButton{
+      width: 15%;
+      position: absolute;
+      right: 10%;
+      background-color: rgb(8, 8, 114);
+      text-align: center;
+      border-style: solid;
+      border-color: white;
+    }
   
 
 

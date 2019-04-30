@@ -1,9 +1,11 @@
 import React from "react";
 import "./gamebutton.css"
+import * as utils from "../../pages/SamTest"
 
 class GameButtonA extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+    utils.playFrisbee();
+    
   }
 
   
@@ -20,7 +22,7 @@ class GameButtonA extends React.Component {
 
 class GameButtonB extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+    utils.bikeRide();
   }
 
   
@@ -37,7 +39,8 @@ class GameButtonB extends React.Component {
 
 class GameButtonC extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+  utils.takeNap();
+   console.log("clickkkk", this);
   }
 
   

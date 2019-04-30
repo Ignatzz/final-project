@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import Card from "../components/Card";
 import API from "../utils/API";
+import  { Redirect } from 'react-router-dom'
+import {FrolfBoy} from "../components/Enemies"
 
 var state = {
   events: [],         // All events
@@ -69,7 +71,7 @@ function attackEnemy(type) {      // Not used:
 
 // Location 1 choices
 export function takeNap() {
-  var randProb = Math.Rand*100;
+  var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 80) {
     // Regain 2 AP!
     console.log("Player gained two AP!");
@@ -90,7 +92,7 @@ export function takeNap() {
   }
 }
 export function bikeRide() {
-  var randProb = Math.Rand*100;
+  var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 80) {
     // Regain 2 AP!
     console.log("Player gained two AP!");
@@ -111,11 +113,13 @@ export function bikeRide() {
   }
 }
 export function playFrisbee() {
-  var randProb = Math.Rand*100;
+  var randProb = Math.floor(Math.random() * 101)-1;
+  console.log("randprob=" + randProb)
   if (randProb <= 60) {
     // Fight frolfer
     console.log("Attacking Frolfer");
-    return attackEnemy('frolfer');
+    return FrolfBoy;
+    // return attackEnemy('frolfer');
   } else if (randProb <= 80) {
     // Fight tourist
     console.log("Attacking Tourist");
