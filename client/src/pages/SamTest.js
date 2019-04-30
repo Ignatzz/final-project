@@ -14,7 +14,8 @@ var state = {
   level: 1,     // Player stats at [0]
   enemyHealth: 10,
   enemyAP: 10,
-  enemyToughness: 10
+  enemyToughness: 5,
+  enemyStrength: 5
 };
 
 // Exported functions     - exported functions
@@ -23,38 +24,106 @@ var state = {
 // getStats()             - get stats
 // .state                 - returns all of the above varable
 // load()                 - load all of the events items and stats
-
-// Functions needed:
-// -Attack enemy (regular)
-// -Attack enemy (special)
-// -Enemy attacks (reg/special)
-// -Change location
+// regularAttack()
+// specialAttack()
 
 function enemyAttacks() {
   console.log("The enemy is attacking!");
   if (state.enemyAP >=7) {
     console.log("The enemy is using there special attack!");
+
+
+    // Show enemy using special attack!
+
+
+    var damage = ((2*Math.floor(Math.random()*6)) + (state.enemyStrength/2)) - (state.playerStats[0].toughness/2);
+    if (damage >= 0) {
+      state.playerStats[0].health = state.playerStats[0].health - damage;
+      checkDeath(damage);
+    } else {
+      alert("The attack missed!");
+    }
   } else {
     console.log("The enemy is doing a regular attack!");
+
+
+    // Show enemy attacking!
+
+
+    var damage = ((Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
+    if (damage >= 0) {
+      state.playerStats[0].health = state.playerStats[0].health - damage;
+      checkDeath(damage);
+    } else {
+      alert("The attack missed!");
+    }
+  }
+
+
+  // Go back to player attacking
+
+
+}
+
+function checkDeath(damage) {
+
+  if (state.playerStats[0].health <= 0) {
+    alert("You were hit with "+damage+" damage! You have been slain!");
+
+
+    // Route to game over screen
+
+
+  } else {
+    alert("You were hit with "+damage+" damage! You're health is now at "+state.playerStats[0].health+"!");
+
+
+    // Close enemy attack modal and return to attack screen
+
+
   }
 }
 
 // Player attacks to be called from the buttons
 export function regularAttack() {
-  state.playerStats[0].ap--;
+  state.playerStats[0].ap = parseInt(state.playerStats[0].ap)-1;
   var damage = ((Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
   state.enemyHealth = state.enemyHealth - damage;
-  console.log("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
-  enemyAttacks();
+  if (state.enemyHealth <= 0) {
+    state.xp += 200;
+    alert("You have killed the enemy and gained 200xp!");
+    checkLevelUp();
+
+
+    // Need to route back to fairmount screen
+
+
+  } else {
+    alert("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
+    enemyAttacks();
+  }
 }
 export function specialAttack() {
-  if (state.playerStats[0].ap >= 7) {
-    state.playerStats[0].ap = state.playerStats[0].ap-7;
+  if (parseInt(state.playerStats[0].ap) >= 7) {
+    state.playerStats[0].ap = parseInt(state.playerStats[0].ap)-7;
     var damage = ((2*Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
     state.enemyHealth = state.enemyHealth - damage;
-    console.log("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
-    enemyAttacks();
+
+    if (state.enemyHealth <= 0) {
+      state.xp += 200;
+      alert("You have killed the enemy and gained 200xp!");
+      checkLevelUp();
+
+
+      // Need to route back to fairmount screen
+
+
+    } else {
+      console.log("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
+      enemyAttacks();
+    }
   } else {
+    alert("You don't have enough AP to use your special attack! ("+state.playerStats[0].ap+"/7)");
     return;
   }
 }
@@ -62,9 +131,47 @@ export function specialAttack() {
 function attackEnemy(type) {      // Not used:
   if (type === 'frolfer') {
 
+
+    // Route to frolfer attack screen
+
+
   } else if (type === 'tourist') {
 
+
+    // Route to tourist attack screen
+
+
   }
+}
+
+export function useItem(item) {
+  alert("You just used "+item.title+"!");
+  var health = parseInt(item.health);
+  var ap = parseInt(item.ap);
+  var strength = parseInt(item.strength);
+  var toughness = parseInt(item.toughness);
+
+  state.playerStats[0].health = parseInt(state.playerStats[0].health) + health;
+  state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + ap;
+  state.playerStats[0].strength = parseInt(state.playerStats[0].strength) + strength;
+  state.playerStats[0].toughness = parseInt(state.playerStats[0].toughness) + toughness;
+
+  var message = 'It\'s effects on you are:';
+
+  if (health != 0) {
+    message = message + ' HP: ' + health;
+  }
+  if (ap != 0) {
+    message = message + ' AP: ' + ap;
+  }
+  if (strength != 0) {
+    message = message + ' Strength: ' + strength;
+  }
+  if (toughness != 0) {
+    message = message + ' Toughness: '+ toughness;
+  }
+  alert(message);
+  checkDeath();
 }
 
 // Location 1 choices
@@ -72,8 +179,8 @@ export function takeNap() {
   var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 80) {
     // Regain 2 AP!
-    console.log("Player gained two AP!");
-    state.playerStats.ap +=2;
+    state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
+    alert("You gained two AP! You are now at "+state.playerStats[0].ap);
     return "ap";
   } else if (randProb <= 90) {
     // Random Event
@@ -93,8 +200,8 @@ export function bikeRide() {
   var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 80) {
     // Regain 2 AP!
-    console.log("Player gained two AP!");
-    state.playerStats.ap +=2;
+    state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
+    alert("You gained two AP! You are now at "+state.playerStats[0].ap);
     return "ap";
   } else if (randProb <= 90) {
     // Random Event
@@ -136,6 +243,7 @@ export function getRandomItem() {
   console.log('Got random item:');
   console.log(state.items[rand]);
   state.playerItems.push(state.items[rand]);
+  console.log(state);
   return state.items[rand];
 }
 export function getRandomEvent() {
@@ -185,15 +293,7 @@ function getEverything() {
     300
   );
 }
-function storeItems(res) {
-  state.items = res;
-}
-function storeEvents(res) {
-  state.events = res;
-}
-function storePlayers(res) {
-  state.players = res;
-}
+
 function getItems() {
   API.getItems()
     .then(res =>
@@ -216,6 +316,19 @@ function getPlayers() {
     .catch(err => console.log(err));
 }
 
+function storeItems(res) {
+  console.log(res);
+  state.items = res;
+}
+function storeEvents(res) {
+  console.log(res);
+  state.events = res;
+}
+function storePlayers(res) {
+  console.log(res);
+  state.playerStats = res;
+}
+
 function nextLocation() {
   if (state.level == 2) {
     alert('Level 1 complete! Restoring health and AP!');
@@ -234,7 +347,7 @@ function nextLocation() {
 }
 
 function levelUp() {
-  console.log('Player '+state.playerStats.name+' leveled up.');
+  alert(state.playerStats[0].name+' has leveled up!');
   console.log('Previously:');
   console.log(state.playerStats);
   state.playerStats[0].health     =   10 + 2*state.level;
@@ -246,7 +359,7 @@ function levelUp() {
   console.log(state.playerStats);
   nextLocation();
   return state.playerStats[0];
-}          // Updates player stats()
+}                                   // Updates player stats()
 function checkLevelUp() {
   if ( state.xp >= 6500 ) {
     if (state.level < 5)
@@ -261,4 +374,4 @@ function checkLevelUp() {
     if (state.level < 2)
       levelUp();
   }
-}     // Calls levelUp()
+}                                   // Calls levelUp()
