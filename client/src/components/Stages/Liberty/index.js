@@ -9,7 +9,6 @@ import CombatUI from "../../CombatUI";
 const Liberty = () => {
     return (
         <div className="libertyStage">
-        <ButtonContainer></ButtonContainer>
         <CombatUI></CombatUI>
         <Gritty></Gritty>
         

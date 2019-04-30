@@ -20,6 +20,8 @@ class SignUp extends React.Component {
     signUp: false
   }
 
+
+
 handleInputChange = event => {
   const value = event.target.value;
   const name = event.target.name;
@@ -33,6 +35,10 @@ handleFormSubmit = event => {
     signUp: true
   }))
 }
+
+
+
+
 
 render(){
   return (

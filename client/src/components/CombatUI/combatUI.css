@@ -1,0 +1,37 @@
+.combatUI{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    background-color: rgb(8, 8, 114);
+    text-align: center;
+}
+
+
+.regAttackButton, .specAttackButton, .useItemButton { 
+width: 33.33%; 
+padding: 0px;
+margin: 0px;
+height: 70px; 
+font-size: 16px;
+color:white;
+background-color: rgb(8, 8, 114);
+white-space: normal;
+border: solid;
+}
+
+@media only screen and (min-width: 600px) {
+    .regAttackButton, .specAttackButton, .useItemButton { 
+        width: 33%; 
+        margin: 20px;
+        height: 100px; 
+        font-size: 28px;
+        padding-left: 10px; 
+       
+        }
+   
+   
+   
+   }
+   
+         
