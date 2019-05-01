@@ -4,7 +4,8 @@ import PrivateRoute from "./PrivateRoutes"
 import Login from "./pages/Login";
 import Main from "./pages/Main"
 import SignUp from "./pages/SignUp"
-import Gameover from "./pages/GameoverPage"
+import GameoverPage from "./pages/GameoverPage"
+import IntroPage from "./pages/IntroPage"
 import RockyPage from "./pages/RockyPage";
 import LibertyPage from "./pages/LibertyPage";
 import OverworldPage from "./pages/OverworldPage";
@@ -16,7 +17,7 @@ import DataResetGet from "./pages/DataResetGet";
 import Nav from "./components/Nav";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import GameoverPage from "./pages/GameoverPage";
+
 
 class App extends Component {
   state = { loading: true, authenticated: false, user: null };
@@ -63,6 +64,7 @@ class App extends Component {
           <Route exact path="/fairmount" component={FairmountPage} />
           <Route exact path="/samtest" component={SamTest} />
           <Route exact path="/data" component={DataResetGet} />
+          <Route exact path="/intro" component={IntroPage} />
         </Switch>
       </div>
     </Router>
