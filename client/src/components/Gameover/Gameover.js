@@ -7,7 +7,7 @@ const Gameover = () => {
         <span className="text1">Game Over</span>
         <br />
         <span className="text2">
-        <Link to="#">
+        <Link to="/fairmount">
         Try Again
         </Link>
         </span>

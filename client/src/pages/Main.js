@@ -3,7 +3,7 @@ import Container from "../components/Container";
 import {Row, Col} from "../components/rollCol"
 import Svg from "../components/Svg/Svg"
 import "./signup.css"
-import {NewGameBtn, ContinueBtn, AboutBtn} from "../components/MainMenu"
+import {NewGameBtn, ContinueBtn} from "../components/MainMenu"
 import {Howl, Howler} from 'howler';
 import tiger from "../sounds/eyetiger.mp3"
 
@@ -45,12 +45,6 @@ class Main extends Component {
           </Col>
         </Row>
         <br />
-        <Row>
-          <Col size="md-12">
-          <AboutBtn
-          />
-          </Col>
-        </Row>
       </Container>
       </div>
     );

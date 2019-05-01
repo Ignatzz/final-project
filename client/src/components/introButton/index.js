@@ -1,7 +1,6 @@
 import React from 'react';
 import posed from 'react-pose';
 import { Link } from "react-router-dom"
-import "./introbutton.css"
 
 const Button = posed.div({
   hidden: { opacity: 0 },
@@ -19,12 +18,11 @@ class IntroButton extends React.Component {
 
   render() {
     const { isVisible } = this.state;
-    return <Button className="btn btn-dark" style={{textAlign: "center"}} pose={isVisible ? 'visible' : 'hidden'}>
-    <Link to="/main">
-    <h4 className="introText">Go forth and stop Gritty!!!!</h4>
+    return <Button className="btn btn-dark" style={{textAlign: "center", height: "200", width: "400px"}} pose={isVisible ? 'visible' : 'hidden'}>
+    <Link to="/fairmount">
+    <h3 className="introText">Go forth and stop Gritty!!!!</h3>
     </Link>
     </Button>
-    
   }
 }
 
