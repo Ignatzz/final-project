@@ -15,7 +15,8 @@ var state = {
   enemyHealth: 10,
   enemyAP: 10,
   enemyToughness: 5,
-  enemyStrength: 5
+  enemyStrength: 5,
+  playerHealth: 10
 };
 
 // Exported functions     - exported functions
@@ -32,13 +33,11 @@ function enemyAttacks() {
   if (state.enemyAP >=7) {
     alert("The enemy is using there special attack!");
 
-
     // Show enemy using special attack!
-
 
     var damage = ((2*Math.floor(Math.random()*6)) + (state.enemyStrength/2)) - (state.playerStats[0].toughness/2);
     if (damage >= 0) {
-      state.playerStats[0].health = state.playerStats[0].health - damage;
+      state.playerHealth = state.playerHealth - damage;
       checkDeath(damage);
     } else {
       alert("The attack missed!");
@@ -46,9 +45,7 @@ function enemyAttacks() {
   } else {
     alert("The enemy is using a regular attack!");
 
-
     // Show enemy attacking!
-
 
     var damage = ((Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
     if (damage >= 0) {
@@ -464,13 +461,14 @@ function levelUp() {
   alert(state.playerStats[0].name+' has leveled up!');
   console.log('Previously:');
   console.log(state.playerStats);
-  state.playerStats[0].health     =   10 + 2*state.level;
-  state.playerStats[0].ap         =   10 + 2*state.level;
+  state.playerStats[0].health     =   state.playerStats[0].health + 1;
+  state.playerStats[0].ap         =   state.playerStats[0].ap + 1;
   state.playerStats[0].strength   =   state.playerStats[0].strength + 1;
   state.playerStats[0].toughness  =   state.playerStats[0].toughness + 1;
   state.level++;
   console.log('Now:');
   console.log(state.playerStats);
+  alert("Your stats are now: "+state.playerStats[0].health+" HP, "+state.playerStats[0].ap+" AP, "+state.playerStats[0].strength+" Strength, "+state.playerStats[0].toughness+" Toughness!");
   nextLocation();
   return state.playerStats[0];
 }                                   // Updates player stats()
