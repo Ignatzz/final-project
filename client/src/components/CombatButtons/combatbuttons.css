@@ -1,0 +1,83 @@
+
+.healthBarDiv {
+    width: 90%;
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    opacity: .7;
+    height: 23px;
+    background-color: white;
+    text-align: center;
+    color: black;
+}
+
+.APBarDiv {
+    width: 90%;
+    position: absolute;
+    top: 6%;
+    left: 5%;
+    opacity: .7;
+    height: 23px;
+    background-color: white;
+    text-align: center;
+    color: black;
+}
+
+.actualHealth, .actualAP {
+    height: 23px;
+    width: 70%;
+    background-color: red;
+    text-align: center;
+    opacity: 1;
+}
+
+.actualAP {
+    background-color: rgb(40, 10, 54);
+}
+
+.healthNumbers, .APnumbers {
+    position: absolute;
+    right: 45%
+}
+
+
+.combatUI{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    background-color: rgb(8, 8, 114);
+    text-align: center;
+    }
+    
+    
+    
+.regAttackButton, .specAttackButton, .useItemButton { 
+    width: 33.33%; 
+    height: 70px; 
+    font-size: 16px;
+    color:white;
+    background-color: rgb(8, 8, 114);
+    white-space: normal;
+    border: solid;
+    }
+    
+    @media only screen and (min-width: 600px) {
+
+
+        
+.regAttackButton, .specAttackButton, .useItemButton {
+    width: 240px; 
+    margin: 20px;
+    height: 100px; 
+    font-size: 28px;
+    padding-left: 10px; 
+    position: relative;
+          
+            }
+       
+       
+       
+       }
+       
+             

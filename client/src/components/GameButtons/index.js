@@ -1,16 +1,15 @@
 import React from "react";
 import "./gamebutton.css"
+import * as utils from "../../pages/SamTest"
 
 class GameButtonA extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+    utils.playFrisbee();
   }
-
-  
 
   render() {
     return (
-      <button className="btn btn-dark buttonA" onClick={this.handleClick}>
+      <button className="buttonA" onClick={this.handleClick}>
         Play Frisbee Golf
       </button>
     );
@@ -20,14 +19,14 @@ class GameButtonA extends React.Component {
 
 class GameButtonB extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+    utils.bikeRide();
   }
 
-  
+
 
   render() {
     return (
-      <button className="btn btn-dark buttonB" onClick={this.handleClick}>
+      <button className="buttonB" onClick={this.handleClick}>
         Go for a bike ride
       </button>
     );
@@ -37,14 +36,15 @@ class GameButtonB extends React.Component {
 
 class GameButtonC extends React.Component {
   handleClick = () => {
-   console.log("clickkkk", this)
+  utils.takeNap();
+   console.log("clickkkk", this);
   }
 
-  
+
 
   render() {
     return (
-      <button className="btn btn-dark buttonC" onClick={this.handleClick}>
+      <button className="buttonC" onClick={this.handleClick}>
        Take a Nap
       </button>
     );

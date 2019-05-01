@@ -1,7 +1,7 @@
 {
-  "name": "googlebooks",
+  "name": "journeyacrossphilly",
   "version": "1.0.0",
-  "description": "Google Books Search",
+  "description": "Journey Across Philly RPG Game",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -24,7 +24,6 @@
     "mongoose": "^5.4.1",
     "react-router-dom": "^4.3.1",
     "react-timeout": "^1.2.0",
-    "react-anime": "^2.2.0",
-    "react-router-dom": "^4.3.1"
+    "react-anime": "^2.2.0"
   }
 }

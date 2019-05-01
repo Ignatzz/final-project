@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import Card from "../components/Card";
 import API from "../utils/API";
-//import ReactTimeout from 'react-timeout';
 
 class DataResetGet extends Component {
   state = {
@@ -24,6 +23,7 @@ class DataResetGet extends Component {
   // resetItems() = Deletes players and calls makeItems(10)
   // makeItems(quantity) = Calls makeItem x quantity then displays after 5s
   // makeItem() = Makes a player... duh
+  //
   resetAll = () => {
     setTimeout(
       function() {
@@ -63,7 +63,7 @@ class DataResetGet extends Component {
 
     setTimeout(
       function() {
-        this.makePlayers(10);
+        this.makePlayers(1);
       }
       .bind(this),
       1000
@@ -125,7 +125,7 @@ class DataResetGet extends Component {
   };
   makeEvents = (quantity) => {
     for (var i = 0; i < quantity; i++) {
-      this.makeEvent();
+      this.makeEvent(i);
     }
     setTimeout(
       function() {
@@ -139,10 +139,10 @@ class DataResetGet extends Component {
       5000
     );
   };
-  makeEvent = () => {
+  makeEvent = (index) => {
     // console.log("Making event");
     var req = {
-      id: "0",
+      id: index,
       title: "Event",
       subtext: "subtext",
       picURL: "picURL",
@@ -181,7 +181,7 @@ class DataResetGet extends Component {
   };
   makeItems = (quantity) => {
     for (var i = 0; i < quantity; i++) {
-      this.makeItem();
+      this.makeItem(i);
     }
     setTimeout(
       function() {
@@ -195,10 +195,10 @@ class DataResetGet extends Component {
       5000
     );
   };
-  makeItem = () => {
+  makeItem = (index) => {
     // console.log("Making event");
     var req = {
-      id: "0",
+      id: index,
       title: "Item",
       subtext: "subtext",
       picURL: "picURL",

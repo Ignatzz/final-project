@@ -1,24 +1,19 @@
-import React from 'react';
-import SplitText from 'react-pose-text';
+import React from "react";
+import "./dialogue.css";
 
-
-const charPoses = {
-  exit: { opacity: 10, y: 400 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    delay: ({ charIndex }) => charIndex * 30
-  }
-};
-
-function Dialouge (props) {
-  return (
-    <div className="container">
-      <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-        {this.props.dialouge}
-      </SplitText>
-    </div>
-  );
+var dialogueOptions = 
+{
+    frisbee:  "Frisbee guy attacks you! Lorem ipsum dolor sit amet consectetur.",
+    tourist: "Tourist guy whoops it up!"
 }
 
-export default Dialouge
+function FrisbeeDialogue(choice) {
+    return <h4>{dialogueOptions.frisbee}</h4>;
+  }
+
+
+
+
+  export {FrisbeeDialogue}
+
+  

@@ -4,6 +4,8 @@ import {Row, Col} from "../components/rollCol"
 import Svg from "../components/Svg/Svg"
 import "./signup.css"
 import {NewGameBtn, ContinueBtn, AboutBtn} from "../components/MainMenu"
+import {Howl, Howler} from 'howler';
+import tiger from "../sounds/eyetiger.mp3"
 
 class Main extends Component {
   state = {
@@ -12,6 +14,17 @@ class Main extends Component {
     about: ""
 
   };
+  SoundPlay = event => {
+    const Sound = new Howl({
+      src: tiger,
+      autoplay: true,
+      volume: 0.5,
+      loop: true
+          });
+  }
+  componentDidMount(){
+    this.SoundPlay();
+  }
 
   render() {
     return (
