@@ -9,7 +9,6 @@
     background-color: white;
     text-align: center;
     color: black;
-    display: none;
 }
 
 .APBarDiv {
@@ -21,13 +20,11 @@
     height: 23px;
     background-color: white;
     text-align: center;
-    color: black;
-    display: none;
+    color: rgb(185, 14, 14);
 }
 
 .actualHealth, .actualAP {
     height: 23px;
-    width: 70%;
     background-color: red;
     text-align: center;
     opacity: 1;
@@ -37,7 +34,7 @@
     background-color: rgb(40, 10, 54);
 }
 
-.healthNumbers, .APnumbers {
+.healthNumbers, .APNumbers {
     position: absolute;
     right: 45%
 }
