@@ -9,7 +9,6 @@ import {Tourist, Mummer, FrolfBoy, Gritty} from "../../Enemies";
 import CombatUI from "../../CombatUI";
 
 var introHappened = false;
-var frisbeeCombat = false;
 
 class Intro extends React.Component {
     
@@ -31,6 +30,7 @@ class Intro extends React.Component {
          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quod culpa laborum iusto neque ea quibusdam, similique rerum? Aliquid voluptatum ex tempora rerum quis, incidunt autem. Earum at quos asperiores.
          </h4>
       <Link to="/fairmount" className="introNextButton" onClick={this.handleClick}>NEXT</Link>
+      
     </div>
     )
   }
@@ -44,26 +44,20 @@ const Fairmount = () => {
         
             </div>
     )}
-    else if (frisbeeCombat){
+    else {
         return(
         <div className="fairmountStage">
             <FrisbeeDialogue/>
+            <ButtonContainer/>
             <CombatUI/>
+            <Tourist/>
             <FrolfBoy/>
             </div>
         )}
-    else {
-        return (
-            <div className="fairmountStage">
-            <ButtonContainer/>
-            </div>
-        )}
+   
   }
 
 
    
 
   export {Fairmount}
-
-  export {frisbeeCombat}
- 
