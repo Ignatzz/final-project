@@ -9,7 +9,7 @@ import FairmountPage from "./pages/FairmountPage";
 import * as utils from "./pages/SamTest";
 import DataResetGet from "./pages/DataResetGet";
 
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 

@@ -28,9 +28,9 @@ var state = {
 // specialAttack()
 
 function enemyAttacks() {
-  console.log("The enemy is attacking!");
+
   if (state.enemyAP >=7) {
-    console.log("The enemy is using there special attack!");
+    alert("The enemy is using there special attack!");
 
 
     // Show enemy using special attack!
@@ -44,7 +44,7 @@ function enemyAttacks() {
       alert("The attack missed!");
     }
   } else {
-    console.log("The enemy is doing a regular attack!");
+    alert("The enemy is using a regular attack!");
 
 
     // Show enemy attacking!
@@ -86,60 +86,122 @@ function checkDeath(damage) {
 
 // Player attacks to be called from the buttons
 export function regularAttack() {
+
   state.playerStats[0].ap = parseInt(state.playerStats[0].ap)-1;
   var damage = ((Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
   state.enemyHealth = state.enemyHealth - damage;
+
   if (state.enemyHealth <= 0) {
+
     state.xp += 200;
     alert("You have killed the enemy and gained 200xp!");
     checkLevelUp();
-
-
-    // Need to route back to fairmount screen
-
+    fightsOver();
 
   } else {
+
     alert("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
     enemyAttacks();
+
   }
 }
 export function specialAttack() {
+
   if (parseInt(state.playerStats[0].ap) >= 7) {
+
     state.playerStats[0].ap = parseInt(state.playerStats[0].ap)-7;
     var damage = ((2*Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
     state.enemyHealth = state.enemyHealth - damage;
 
     if (state.enemyHealth <= 0) {
+
       state.xp += 200;
       alert("You have killed the enemy and gained 200xp!");
       checkLevelUp();
-
-
-      // Need to route back to fairmount screen
-
+      fightsOver();
 
     } else {
-      console.log("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
+
+      alert("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
       enemyAttacks();
+
     }
   } else {
+
     alert("You don't have enough AP to use your special attack! ("+state.playerStats[0].ap+"/7)");
     return;
+
   }
 }
 
+function fightsOver() {
+
+  var btnA = document.getElementsByClassName('buttonA');
+  var btnB = document.getElementsByClassName('buttonB');
+  var btnC = document.getElementsByClassName('buttonC');
+  btnA[0].style.display = "inline-block";
+  btnB[0].style.display = "inline-block";
+  btnC[0].style.display = "inline-block";
+
+  var atkBtn = document.getElementsByClassName('regAttackButton');
+  var spcBtn = document.getElementsByClassName('specAttackButton');
+  var itmBtn = document.getElementsByClassName('useItemButton');
+  atkBtn[0].style.display = "none";
+  spcBtn[0].style.display = "none";
+  itmBtn[0].style.display = "none";
+
+  var tourist = document.getElementsByClassName('touristDiv');
+  var hpBar = document.getElementsByClassName('healthBarDiv');
+  var apBar = document.getElementsByClassName('APBarDiv');
+  tourist[0].style.display = "none";
+  hpBar[0].style.display = "none";
+  apBar[0].style.display = "none";
+
+  var tourist = document.getElementsByClassName('touristDiv');
+  var hpBar = document.getElementsByClassName('healthBarDiv');
+  var apBar = document.getElementsByClassName('APBarDiv');
+  tourist[0].style.display = "none";
+  hpBar[0].style.display = "none";
+  apBar[0].style.display = "none";
+
+}
+
 function attackEnemy(type) {      // Not used:
+
+  var btnA = document.getElementsByClassName('buttonA');
+  var btnB = document.getElementsByClassName('buttonB');
+  var btnC = document.getElementsByClassName('buttonC');
+  btnA[0].style.display = "none";
+  btnB[0].style.display = "none";
+  btnC[0].style.display = "none";
+
+  var atkBtn = document.getElementsByClassName('regAttackButton');
+  var spcBtn = document.getElementsByClassName('specAttackButton');
+  var itmBtn = document.getElementsByClassName('useItemButton');
+  console.log(atkBtn);
+  console.log(spcBtn);
+  console.log(itmBtn);
+  atkBtn[0].style.display = "inline-block";
+  spcBtn[0].style.display = "inline-block";
+  itmBtn[0].style.display = "inline-block";
+
   if (type === 'frolfer') {
 
-
-    // Route to frolfer attack screen
-
+    var frolfer = document.getElementsByClassName('frolfDiv');
+    var hpBar = document.getElementsByClassName('healthBarDiv');
+    var apBar = document.getElementsByClassName('APBarDiv');
+    frolfer[0].style.display = "inline-block";
+    hpBar[0].style.display = "inline-block";
+    apBar[0].style.display = "inline-block";
 
   } else if (type === 'tourist') {
 
-
-    // Route to tourist attack screen
-
+    var tourist = document.getElementsByClassName('touristDiv');
+    var hpBar = document.getElementsByClassName('healthBarDiv');
+    var apBar = document.getElementsByClassName('APBarDiv');
+    tourist[0].style.display = "inline-block";
+    hpBar[0].style.display = "inline-block";
+    apBar[0].style.display = "inline-block";
 
   }
 }
@@ -178,79 +240,98 @@ export function useItem(item) {
 export function takeNap() {
   var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 80) {
-    // Regain 2 AP!
+
     state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
-    alert("You gained two AP! You are now at "+state.playerStats[0].ap);
+    alert("You rested well and gained 2 AP! You are now at "+state.playerStats[0].ap+"!");
     return "ap";
+
   } else if (randProb <= 90) {
-    // Random Event
-    console.log('Found an event!');
+
     var randomEvent = getRandomEvent();
-    console.log(randomEvent);
     return randomEvent;
+
   } else {
-    // Find Item
-    console.log('Found an item!');
+
     var randomItem = getRandomItem();
-    console.log(randomItem);
     return randomItem;
+
   }
 }
 export function bikeRide() {
+
+  // window.history.push("/");
+
   var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 80) {
-    // Regain 2 AP!
+
     state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
-    alert("You gained two AP! You are now at "+state.playerStats[0].ap);
+    alert("The bike trip energized you with 2 AP! You are now at "+state.playerStats[0].ap+"!");
     return "ap";
+
   } else if (randProb <= 90) {
-    // Random Event
-    console.log('Found an event!');
+
     var randomEvent = getRandomEvent();
-    console.log(randomEvent);
     return randomEvent;
+
   } else {
-    // Find Item
-    console.log('Found an item!');
+
     var randomItem = getRandomItem();
-    console.log(randomItem);
     return randomItem;
+
   }
 }
 export function playFrisbee() {
+
+  // window.location.href = '/';
+
   var randProb = Math.floor(Math.random() * 101)-1;
-  console.log("randprob=" + randProb)
+  console.log("randprob=" + randProb);
   if (randProb <= 60) {
-    // Fight frolfer
+
     console.log("Attacking Frolfer");
-    return FrolfBoy;
-    // return attackEnemy('frolfer');
+    // return FrolfBoy;
+    return attackEnemy('frolfer');
+
   } else if (randProb <= 80) {
-    // Fight tourist
+
     console.log("Attacking Tourist");
     return attackEnemy('tourist');
+
   } else {
+
     // Find item
-    console.log('Found an item!');
     var randomItem = getRandomItem();
-    console.log(randomItem);
+    state.playerItems.add(randomItem);
     return randomItem;
+
   }
 }
 
 export function getRandomItem() {
+
   var rand = Math.floor(Math.random() * state.items.length);
-  console.log('Got random item:');
-  console.log(state.items[rand]);
+  alert('You just picked up an'+state.items[rand].title);
   state.playerItems.push(state.items[rand]);
   console.log(state);
   return state.items[rand];
+
 }
 export function getRandomEvent() {
   var rand = Math.floor(Math.random() * state.events.length);
-  console.log('Got random event:');
+  alert('Got random event: '+state.events[rand].title);
   console.log(state.events[rand]);
   // Need function to change stats
+
+
+
+
+
+
+
+
+
+
+
   return state.events[rand];
 }
 export function getPlayer() {
@@ -262,13 +343,6 @@ export function getPlayer() {
 export { state };
 export function load() {
   getEverything();
-  setTimeout(
-    function() {
-      getRandomEvent();
-    }
-    .bind(this),
-    5000
-  );
 }
 function getEverything() {
   setTimeout(
