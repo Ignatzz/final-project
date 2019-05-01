@@ -8,6 +8,7 @@ import OverworldPage from "./pages/OverworldPage";
 import FairmountPage from "./pages/FairmountPage";
 import * as utils from "./pages/SamTest";
 import DataResetGet from "./pages/DataResetGet";
+import Combat from "./pages/Combat"
 
 // import Nav from "./components/Nav";
 
@@ -34,6 +35,7 @@ const App = () => {
           <Route exact path="/" component={Login} />
           <Route exact path="/main" component={Main} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/combat" component={Combat} />
           {/* These just link to components for backgrounds for now. Will probaly make sense to call them as components later  */}
           <Route exact path="/overworld" component={OverworldPage} />
           <Route exact path="/rocky" component={RockyPage} />

@@ -72,6 +72,7 @@ function checkDeath(damage) {
 
 
     // Route to game over screen
+    window.location.href = '/gameover';
 
 
   } else {
