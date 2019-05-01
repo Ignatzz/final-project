@@ -25,7 +25,6 @@
 
 .actualHealth, .actualAP {
     height: 23px;
-    min-width: 10%;
     background-color: red;
     text-align: center;
     opacity: 1;
@@ -35,7 +34,7 @@
     background-color: rgb(40, 10, 54);
 }
 
-.healthNumbers, .APnumbers {
+.healthNumbers, .APNumbers {
     position: absolute;
     right: 45%
 }
