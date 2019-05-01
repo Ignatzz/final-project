@@ -7,6 +7,8 @@ import { Link } from "react-router-dom"
 import {FrisbeeDialogue} from "../../Dialogue"
 import {Tourist, Mummer, FrolfBoy, Gritty} from "../../Enemies";
 import CombatUI from "../../CombatUI";
+import SplitText from "react-pose-text"
+
 
 var introHappened = false;
 
@@ -22,15 +24,33 @@ class Intro extends React.Component {
         )
 
        }
-    render() {
-        return(
-        <div >
-         <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quod culpa laborum iusto neque ea quibusdam, similique rerum? Aliquid voluptatum ex tempora rerum quis, incidunt autem. Earum at quos asperiores. 
 
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quod culpa laborum iusto neque ea quibusdam, similique rerum? Aliquid voluptatum ex tempora rerum quis, incidunt autem. Earum at quos asperiores.
-         </h4>
-      <Link to="/fairmount" className="introNextButton" onClick={this.handleClick}>NEXT</Link>
-      
+       
+
+       
+    render() {
+        const charPoses = {
+            exit: { opacity: 0, y: 1000 },
+            enter: {
+              opacity: 95,
+              y: 0,
+              delay: ({ charIndex }) => charIndex * 80
+            }
+          };
+        return(
+        <div className="dialougeContainer">
+        <div className="fairDiv text-center">
+        <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+         You begin your serach for the terror known as Gritty at Fairmount Park which has become territory the frolf boys and tourist. 
+         
+         They litter park with no regard for personal space, tourists barrage you with geographical location questions and asking you to say "wuter". 
+         </SplitText>
+         <br />
+         <br />
+      <Link to="/fairmount" className="introNextButton" 
+      style={{texttextAlign: "center"}}
+      onClick={this.handleClick}>NEXT</Link>
+      </div>
     </div>
     )
   }
