@@ -44,7 +44,7 @@ class DataResetGet extends Component {
         this.resetItems();
       }
       .bind(this),
-      3000
+      4000
     );
   }
 
@@ -117,12 +117,49 @@ class DataResetGet extends Component {
 
     setTimeout(
       function() {
-        this.makeEvents(10);
+        // this.makeEvents(10);
+        this.makeRealEvents();
       }
       .bind(this),
       1000
     );
   };
+
+  makeRealEvents = () => {
+    var realEvents = [
+      {id:'0',title:'Hit by a Septa Bus',subtext:'',picURL:'',health:'-100',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'1',title:'Hit by Girard Trolly',subtext:'',picURL:'',health:'-2',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'2',title:'Ran Up Rocky Steps',subtext:'',picURL:'',health:'0',ap:'0',strength:'2',toughness:'0',specialCode:''}
+      ,{id:'3',title:'Visited the Art Museum',subtext:'',picURL:'',health:'0',ap:'1',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'4',title:'Drunk On South Street',subtext:'',picURL:'',health:'0',ap:'-2',strength:'0',toughness:'1',specialCode:''}
+      ,{id:'5',title:'Find $20',subtext:'',picURL:'',health:'0',ap:'1',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'6',title:'Took a Coding Bootcamp Class',subtext:'',picURL:'',health:'1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'7',title:'Found a red mushroom',subtext:'',picURL:'',health:'1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'8',title:'Hit a Pothole',subtext:'',picURL:'',health:'-1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'9',title:'Car Falls into a Sinkhole',subtext:'',picURL:'',health:'-2',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'10',title:'Got a Parking Ticket',subtext:'',picURL:'',health:'0',ap:'-1',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'11',title:'Yipsters Call the Cops for You Jaywalking',subtext:'',picURL:'',health:'-1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'12',title:'You Found One Extra Wing in Your 10 Piece ',subtext:'',picURL:'',health:'1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'13',title:'Stubbed Your Toe & Only Shed One Tear',subtext:'',picURL:'',health:'0',ap:'0',strength:'0',toughness:'1',specialCode:''}
+      ,{id:'14',title:'Burned by the Fryer at Federal Donuts',subtext:'',picURL:'',health:'-1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'15',title:'Had Brunch at Sabrinas',subtext:'',picURL:'',health:'1',ap:'0',strength:'0',toughness:'-1',specialCode:''}
+      ,{id:'16',title:'Went to Made in America',subtext:'',picURL:'',health:'1',ap:'-2',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'17',title:'Got Lost in Reading Terminal',subtext:'',picURL:'',health:'0',ap:'-1',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'18',title:'You Actually Went to the Gallery',subtext:'',picURL:'',health:'-1',ap:'-1',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'19',title:'Pat Burrell Steals Your Girlfriend, *insert name*',subtext:'',picURL:'',health:'0',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'20',title:'Dollar Dog Night',subtext:'',picURL:'',health:'1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'21',title:'Caught in Parade Down Fairmount',subtext:'',picURL:'',health:'0',ap:'-2',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'22',title:'Spilled Hot Chocolate During Hot Chocolate Marathon',subtext:'',picURL:'',health:'-1',ap:'0',strength:'1',toughness:'0',specialCode:''}
+      ,{id:'23',title:'Caught in a Flash Mob',subtext:'',picURL:'',health:'-1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+    ];
+
+    for (var i = 0; i < realEvents.length; i++) {
+      API.saveEvent(realEvents[i])
+        .then();
+    }
+    console.log("Item saved");
+  }
+
   makeEvents = (quantity) => {
     for (var i = 0; i < quantity; i++) {
       this.makeEvent(i);
@@ -179,7 +216,8 @@ class DataResetGet extends Component {
 
     setTimeout(
       function() {
-        this.makeItems(10);
+        // this.makeItems(10);
+        this.makeRealItems();
       }
       .bind(this),
       1000
@@ -188,10 +226,22 @@ class DataResetGet extends Component {
 
   makeRealItems = () => {
     var realItems = [
-      {
+      {id:'1',title:'Primo Hoagie',subtext:'You find a sandwich bursting with Italian meats.',picURL:'',health:'2',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'2',title:'Roast Pork Sandwich',subtext:'',picURL:'',health:'2',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'3',title:'Septa Token',subtext:'A relic from the past. ',picURL:'',health:'0',ap:'2',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'4',title:'Arctic Splash',subtext:'',picURL:'',health:'0',ap:'2',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'5',title:'Cheap Beer',subtext:'',picURL:'',health:'0',ap:'0',strength:'2',toughness:'0',specialCode:''}
+      ,{id:'6',title:'Super Bowl Ring',subtext:'',picURL:'',health:'0',ap:'0',strength:'2',toughness:'0',specialCode:''}
+      ,{id:'7',title:'Federal Donut',subtext:'',picURL:'',health:'0',ap:'1',strength:'0',toughness:'1',specialCode:''}
+      ,{id:'8',title:'Glenn’s Bow Tie',subtext:'',picURL:'',health:'0',ap:'1',strength:'0',toughness:'1',specialCode:''}
+      ,{id:'9',title:'Wooder Ice',subtext:'',picURL:'',health:'1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+    ];
 
-      }
-    ]
+    for (var i = 0; i < realItems.length; i++) {
+      API.saveItem(realItems[i])
+        .then();
+    }
+    console.log("Item saved");
   }
 
   makeItems = (quantity) => {
