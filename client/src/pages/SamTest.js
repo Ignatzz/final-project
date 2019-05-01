@@ -15,8 +15,8 @@ var state = {
   level: 1,     // Player stats at [0]
   enemyHealth: 20,
   enemyAP: 10,
-  enemyToughness: 5,
-  enemyStrength: 5,
+  enemyToughness: 6,
+  enemyStrength: 4,
   playerHealth: 10,
   playerAP: 10
 };
@@ -227,7 +227,7 @@ export function useItem(item) {
   var strength = parseInt(item.strength);
   var toughness = parseInt(item.toughness);
 
-  state.playerStats[0].health = parseInt(state.playerStats[0].health) + health;
+  state.playerHealth = parseInt(state.playerHealth) + health;
   state.playerAP = parseInt(state.playerAP) + ap;
   state.playerStats[0].strength = parseInt(state.playerStats[0].strength) + strength;
   state.playerStats[0].toughness = parseInt(state.playerStats[0].toughness) + toughness;
@@ -257,8 +257,8 @@ export function takeNap() {
   var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 50) {
 
-    state.playerAP = parseInt(state.playerAP) + 2;
-    alert("You rested well and gained 2 AP! You are now at "+state.playerAP+"!");
+    state.playerHealth = parseInt(state.playerHealth) + 2;
+    alert("You rested well and gained 2 AP! You are now at "+state.playerHealth+"!");
     return "ap";
 
   } else if (randProb <= 60) {
@@ -346,7 +346,7 @@ export function getRandomEvent() {
   var strength  = parseInt(state.events[rand].strength);
   var toughness = parseInt(state.events[rand].toughness);
 
-  state.playerStats[0].health     = parseInt(state.playerStats[0].health) + health;
+  state.playerHealth     = parseInt(state.playerHealth) + health;
   state.playerAP         = parseInt(state.playerAP) + ap;
   state.playerStats[0].strength   = parseInt(state.playerStats[0].strength) + strength;
   state.playerStats[0].toughness  = parseInt(state.playerStats[0].toughness) + toughness;
@@ -387,9 +387,9 @@ export function getRandomEvent() {
     }
   }
   alert(message);
-  alert('Your Stats are now:  '+state.playerStats[0].health+' HP, '+state.playerStats[0].ap+' AP, '+state.playerStats[0].strength+' Strength, '+state.playerStats[0].toughness+' Toughness');
-
-  if (state.playerStats[0].health <= 0) {
+  alert('Your Stats are now:  '+state.playerStats[0].health +' HP, '+state.playerStats[0].ap+' AP, '+state.playerStats[0].strength+' Strength, '+state.playerStats[0].toughness+' Toughness');
+  
+  if (state.playerHealth <= 0) {
     alert("The event has killed you!");
 
     // Route to game over screen
