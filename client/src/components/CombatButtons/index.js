@@ -22,6 +22,7 @@ class RegAttackButton extends React.Component {
 
 
 class SpecAttackButton extends React.Component {
+  
   handleClick = () => {
     utils.specialAttack();
   }
@@ -59,6 +60,15 @@ class UseItemButton extends React.Component {
 }
 
 class PlayerHealthBar extends React.Component {
+  componentDidMount() {
+    setTimeout(
+      function() {
+        console.log("playerstats:" + utils.state.playerStats[0].health)
+      }
+      .bind(this),
+      5000
+    ); 
+  }
     state = {
       currentPlayerHealth: this.props.currentPlayerHealth,
       totalPlayerHealth: this.props.totalPlayerHealth,
@@ -72,7 +82,7 @@ class PlayerHealthBar extends React.Component {
       <div className= "healthBarDiv">
         
         <div className= "actualHealth"  style={this.styling}>
-        <p className= "healthNumbers">HP: {this.currentPlayerHealth} / </p>
+        <p className= "healthNumbers">HP:  / </p>
         </div>
 
       </div>
