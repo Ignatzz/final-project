@@ -44,7 +44,7 @@ class DataResetGet extends Component {
         this.resetItems();
       }
       .bind(this),
-      4000
+      3000
     );
   }
 
@@ -90,7 +90,7 @@ class DataResetGet extends Component {
   makePlayer = () => {
     console.log("Making user");
     var req = {
-      name: "Sam",
+      name: "Player 1",
       health: "10",
       ap: "10",
       strength: "10",
