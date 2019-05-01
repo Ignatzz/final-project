@@ -1,21 +1,25 @@
 .mummer{
     height:70%;
     width:200px;
+    display: none;
 }
 
 .tourist{
     height: 80%;
     width: 320px;
+    display: none;
 
   }
 
   .frolfBoy{
     height: 80%;
     width: 320px;
+    display: none;
   }
   .gritty{
     height: 80%;
     width: 320px;
+    display: none;
   }
 
   .touristDiv, .mummerDiv, .frolfDiv, .grittyDiv{
