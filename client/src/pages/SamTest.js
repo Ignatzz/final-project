@@ -320,7 +320,13 @@ export function playFrisbee() {
 export function getRandomItem() {
 
   var rand = Math.floor(Math.random() * state.items.length);
-  alert('You Found an '+state.items[rand].title+"!");
+
+  var fl = state.items[rand].title.substring(0,1);
+  if (fl==='a'||fl==='e'||fl==='i'||fl==='o'||fl==='u') {
+    alert('You found an '+state.items[rand].title+"!");
+  } else {
+    alert('You found a '+state.items[rand].title+"!");
+  }
   state.playerItems.push(state.items[rand]);
   console.log(state);
   return state.items[rand];
@@ -379,8 +385,7 @@ export function getRandomEvent() {
     }
   }
   alert(message);
-  var ps = state.playerStats[0];
-  alert('Your Stats are now:  '+ps.health+' HP, '+ps.ap+' AP, '+ps.strength+' Strength, '+ps.toughness+' Toughness');
+  alert('Your Stats are now:  '+state.playerStats[0].health+' HP, '+state.playerStats[0].ap+' AP, '+state.playerStats[0].strength+' Strength, '+state.playerStats[0].toughness+' Toughness');
 
   if (state.playerStats[0].health <= 0) {
     alert("The event has killed you!");
@@ -481,10 +486,10 @@ function levelUp() {
   alert(state.playerStats[0].name+' has leveled up!');
   console.log('Previously:');
   console.log(state.playerStats);
-  state.playerStats[0].health     =   state.playerStats[0].health + 1;
-  state.playerStats[0].ap         =   state.playerStats[0].ap + 1;
-  state.playerStats[0].strength   =   state.playerStats[0].strength + 1;
-  state.playerStats[0].toughness  =   state.playerStats[0].toughness + 1;
+  state.playerStats[0].health     =   parseInt(state.playerStats[0].health) + 1;
+  state.playerStats[0].ap         =   parseInt(state.playerStats[0].ap) + 1;
+  state.playerStats[0].strength   =   parseInt(state.playerStats[0].strength) + 1;
+  state.playerStats[0].toughness  =   parseInt(state.playerStats[0].toughness) + 1;
   state.level++;
   console.log('Now:');
   console.log(state.playerStats);
