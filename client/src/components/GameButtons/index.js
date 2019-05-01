@@ -37,7 +37,7 @@ class GameButtonB extends React.Component {
 class GameButtonC extends React.Component {
   handleClick = () => {
   utils.takeNap();
-   console.log("clickkkk", this);
+   // console.log("clickkkk", this);
   }
 
 
