@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import API from "../utils/API";
 import  { Redirect } from 'react-router-dom'
 import {FrolfBoy} from "../components/Enemies"
+import {PlayerHealthBar} from "../components/CombatButtons"
 
 var state = {
   events: [],         // All events
@@ -12,7 +13,7 @@ var state = {
   playerStats: [],
   xp: 0,
   level: 1,     // Player stats at [0]
-  enemyHealth: 10,
+  enemyHealth: 20,
   enemyAP: 10,
   enemyToughness: 5,
   enemyStrength: 5,
@@ -52,7 +53,8 @@ function enemyAttacks() {
 
     var damage = ((Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
     if (damage >= 0) {
-      state.playerStats[0].health = state.playerStats[0].health - damage;
+      state.playerHealth = state.playerHealth - damage;
+      console.log("player health is now "+state.playerHealth);
       checkDeath(damage);
     } else {
       alert("The attack missed!");
@@ -67,15 +69,15 @@ function enemyAttacks() {
 
 function checkDeath(damage) {
 
-  if (state.playerStats[0].health <= 0) {
+  if (state.playerHealth <= 0) {
     alert("You were hit with "+damage+" damage! You have been slain!");
 
     // Route to game over screen
     window.location.href = '/gameover';
 
   } else {
-    alert("You were hit with *"+damage+"* damage! You're health is now at "+state.playerStats[0].health+"HP!");
-
+    alert("You were hit with *"+damage+"* damage! You're health is now at "+state.playerHealth+"HP!");
+   
 
     // Close enemy attack modal and return to attack screen
 
