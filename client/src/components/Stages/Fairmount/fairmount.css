@@ -33,9 +33,10 @@ html, body, #app, div {
     }
 
     .introNextButton{
-      width: 15%;
+      width: 16%;
       position: absolute;
-      right: 10%;
+      top:20%;
+      right: 42%;
       background-color: rgb(8, 8, 114);
       text-align: center;
       border-style: solid;
