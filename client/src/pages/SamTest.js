@@ -16,7 +16,8 @@ var state = {
   enemyAP: 10,
   enemyToughness: 5,
   enemyStrength: 5,
-  playerHealth: 10
+  playerHealth: 10,
+  playerAP: 10
 };
 
 // Exported functions     - exported functions
@@ -32,6 +33,8 @@ function enemyAttacks() {
 
   if (state.enemyAP >=7) {
     alert("The enemy is using there special attack!");
+
+    state.enemyAP = state.enemyAP - 6;
 
     // Show enemy using special attack!
 
@@ -83,11 +86,11 @@ function checkDeath(damage) {
 // Player attacks to be called from the buttons
 export function regularAttack() {
 
-  state.playerStats[0].ap = parseInt(state.playerStats[0].ap)-1;
+  state.playerAP = parseInt(state.playerAP);
   var damage = ((Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
   state.enemyHealth = state.enemyHealth - damage;
 
-  alert("You flail your arms like wild and do *"+damage+"* damage on the enemy!");
+  alert("You punch your foe with *"+damage+"* damage!");
 
   if (state.enemyHealth <= 0) {
 
@@ -105,9 +108,9 @@ export function regularAttack() {
 }
 export function specialAttack() {
 
-  if (parseInt(state.playerStats[0].ap) >= 5) {
+  if (parseInt(state.playerAP) >= 5) {
 
-    state.playerStats[0].ap = parseInt(state.playerStats[0].ap)-7;
+    state.playerAP = parseInt(state.playerAP)-6;
     var damage = ((2*Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
     state.enemyHealth = state.enemyHealth - damage;
 
@@ -128,13 +131,16 @@ export function specialAttack() {
     }
   } else {
 
-    alert("You don't have enough AP to use your special attack! ("+state.playerStats[0].ap+"/5)");
+    alert("You don't have enough AP to use your special attack! ("+state.playerAP+"/5)");
     return;
 
   }
 }
 
 function fightsOver() {
+
+  var enemyHealth = 10;
+  var enemyAP = 10;
 
   var btnA = document.getElementsByClassName('buttonA');
   var btnB = document.getElementsByClassName('buttonB');
@@ -197,6 +203,20 @@ function attackEnemy(type) {      // Not used:
   }
 }
 
+export function openMenu() {
+  var itemMenu = document.getElementsByClassName('frolfBoy');
+  var itemTable = document.getElementsByClassName('tourist');
+  itemMenu[0].style.display = "inline-block";
+  itemTable[0].style.display = "inline-block";
+}
+
+export function closeMenu() {
+  var itemMenu = document.getElementsByClassName('frolfBoy');
+  var itemTable = document.getElementsByClassName('tourist');
+  itemMenu[0].style.display = "none";
+  itemTable[0].style.display = "none";
+}
+
 export function useItem(item) {
 
   alert("You just used "+item.title+"!");
@@ -206,7 +226,7 @@ export function useItem(item) {
   var toughness = parseInt(item.toughness);
 
   state.playerStats[0].health = parseInt(state.playerStats[0].health) + health;
-  state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + ap;
+  state.playerAP = parseInt(state.playerAP) + ap;
   state.playerStats[0].strength = parseInt(state.playerStats[0].strength) + strength;
   state.playerStats[0].toughness = parseInt(state.playerStats[0].toughness) + toughness;
 
@@ -235,8 +255,8 @@ export function takeNap() {
   var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 50) {
 
-    state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
-    alert("You rested well and gained 2 AP! You are now at "+state.playerStats[0].ap+"!");
+    state.playerAP = parseInt(state.playerAP) + 2;
+    alert("You rested well and gained 2 AP! You are now at "+state.playerAP+"!");
     return "ap";
 
   } else if (randProb <= 60) {
@@ -256,8 +276,8 @@ export function bikeRide() {
   var randProb = Math.floor(Math.random() * 101)-1;
   if (randProb <= 20) {
 
-    state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
-    alert("The bike trip energized you with 2 AP! You are now at "+state.playerStats[0].ap+"!");
+    state.playerAP = parseInt(state.playerAP) + 2;
+    alert("The bike trip energized you with 2 AP! You are now at "+state.playerAP+"!");
     return "ap";
 
   } else if (randProb <= 80) {
@@ -319,7 +339,7 @@ export function getRandomEvent() {
   var toughness = parseInt(state.events[rand].toughness);
 
   state.playerStats[0].health     = parseInt(state.playerStats[0].health) + health;
-  state.playerStats[0].ap         = parseInt(state.playerStats[0].ap) + ap;
+  state.playerAP         = parseInt(state.playerAP) + ap;
   state.playerStats[0].strength   = parseInt(state.playerStats[0].strength) + strength;
   state.playerStats[0].toughness  = parseInt(state.playerStats[0].toughness) + toughness;
 

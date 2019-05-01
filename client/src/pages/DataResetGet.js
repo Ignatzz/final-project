@@ -185,6 +185,15 @@ class DataResetGet extends Component {
       1000
     );
   };
+
+  makeRealItems = () => {
+    var realItems = [
+      {
+
+      }
+    ]
+  }
+
   makeItems = (quantity) => {
     for (var i = 0; i < quantity; i++) {
       this.makeItem(i);
