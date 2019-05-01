@@ -3,6 +3,7 @@ import "./gameMenu.css"
 import soundIcon from "../../images/soundicon.png";
 import {Howl, Howler} from 'howler';
 import tiger from "../../sounds/eyetiger.mp3"
+import * as utils from "../../pages/SamTest"
 
 
 class GameMenu extends Component {
@@ -59,7 +60,7 @@ render ()   {
                  </div>
 
              </div>
-        <div className="exitButton">EXIT</div>
+        <div className="exitButton" onClick={utils.closeMenu}>EXIT</div>
          </div>
         </div>
       )
