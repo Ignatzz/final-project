@@ -1,0 +1,18 @@
+
+.dialogueContainer {
+    padding-top: 80px;
+    background: #000;
+    background-size: cover;
+    align-content: center;
+    height: 100%;
+    width: 100%
+}
+
+.textDiv {
+    color: ghostwhite;
+    background: #000;
+    background-size: cover;
+    margin-right: 800px;
+    height: 100%;
+    width: 100%
+}

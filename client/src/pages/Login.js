@@ -1,41 +1,46 @@
-import React from "react";
+import React, { Component } from "react";
 import Container from "../components/Container";
 import {Row, Col} from "../components/rollCol"
 import Svg from "../components/Svg/Svg"
-import {UsernameInput, PasswordInput} from "../components/LoginForm";
+import LoginForm from "../components/LoginForm";
 import FormBtn from "../components/FormBtn/"
 import SignUpBtn from "../components/Btn";
+import app from "../firebase/base"
 import "./login.css";
 
 
-class Login extends React.Component {
-  state = {
-    username: "",
-    password: "",
-    login: false,
-    signUp: false,
-  };
+class Login extends Component {
+ handleLogin = async event => {
+   event.preventDefault();
+   const { email, password} = event.target.elements;
+   try {
+     const user = await  app
+     .auth()
+     .signInWithEmailAndPassword(email.value, password.value);
+     this.props.history.push("/main")
+   } catch (error) {
+     alert(error)
+   }
+ };
 
 
-  handleInputChange = event => {
-    const value = event.target.value;
-    const name = event.target.name;
-    // const password = event.target.password;
-    debugger
-    this.setState({
-      [name]: value,
-    });
-  };
+  // handleInputChange = event => {
+  //   const value = event.target.value;
+  //   const name = event.target.name;
+  //   // const password = event.target.password;
+  //   debugger
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // };
 
-  // Submittal for username and password
-  handleFormSubmit = event => {
-    this.setState(() => ({
-      login: true,
-      signUp: true
-    }))
+  // // Submittal for username and password
+  // handleFormSubmit = event => {
+  //   this.setState(() => ({
+  //     login: true,
+  //     signUp: true
+  //   }))
 
-
-  };
 
   render() {
     return (
@@ -43,30 +48,16 @@ class Login extends React.Component {
       <main>
         <Svg />
       <Container>
-        <br />
         <Row>
           <Col size="sm-12">
-          <UsernameInput
-          value={this.state}
-          onChange={this.state.handleInputChange}
-          />
-          <PasswordInput
-          value={this.state}
-          onChange={this.state.handleInputChange}
-          />
-          <FormBtn
-          onClick={this.state.handleFormSubmit}
-          />
+          <LoginForm onSubmit={this.handleLogin} />
           </Col>
         </Row>
-        <br />
         <Row>
-          <Col>
-          <SignUpBtn
-          />
+          <Col size="sm-12">
+          <SignUpBtn />
           </Col>
-        </Row>
-
+          </Row>
       </Container>
       </main>
       </div>
