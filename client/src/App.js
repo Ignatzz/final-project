@@ -70,7 +70,6 @@ loadData();
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/gameover" component={GameoverPage} />
           <Route exact path="/combat" component={Combat} />
-          {/* These just link to components for backgrounds for now. Will probaly make sense to call them as components later  */}
           <Route exact path="/overworld" component={OverworldPage} />
           <Route exact path="/rocky" component={RockyPage} />
           <Route exact path="/liberty" component={LibertyPage} />
