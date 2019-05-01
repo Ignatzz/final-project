@@ -92,9 +92,10 @@ class DataResetGet extends Component {
     var req = {
       name: "Player 1",
       health: "10",
+      health: "20",
       ap: "10",
-      strength: "10",
-      toughness: "10"
+      strength: "8",
+      toughness: "12"
     }
     API.savePlayer(req)
       .then();
@@ -226,15 +227,15 @@ class DataResetGet extends Component {
 
   makeRealItems = () => {
     var realItems = [
-      {id:'1',title:'Primo Hoagie',subtext:'You find a sandwich bursting with Italian meats.',picURL:'',health:'2',ap:'0',strength:'0',toughness:'0',specialCode:''}
-      ,{id:'2',title:'Roast Pork Sandwich',subtext:'',picURL:'',health:'2',ap:'0',strength:'0',toughness:'0',specialCode:''}
-      ,{id:'3',title:'Septa Token',subtext:'A relic from the past. ',picURL:'',health:'0',ap:'2',strength:'0',toughness:'0',specialCode:''}
-      ,{id:'4',title:'Arctic Splash',subtext:'',picURL:'',health:'0',ap:'2',strength:'0',toughness:'0',specialCode:''}
-      ,{id:'5',title:'Cheap Beer',subtext:'',picURL:'',health:'0',ap:'0',strength:'2',toughness:'0',specialCode:''}
+      {id:'1',title:'Primo Hoagie',subtext:'You find a sandwich bursting with Italian meats.',picURL:"../images/items/primopixel.png",health:'2',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'2',title:'Roast Pork Sandwich',subtext:'',picURL:"../images/items/roastporkpixel.png",health:'2',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'3',title:'Septa Token',subtext:'A relic from the past. ',picURL:"../images/items/token.png",health:'0',ap:'2',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'4',title:'Arctic Splash',subtext:'',picURL:"../images/items/arcticsplashpixel.png",health:'0',ap:'2',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'5',title:'Tall Boy',subtext:'You find a sweet crispy pounder! Beer muscles ahoy!',picURL:"../images/items/tallboy.png",health:'0',ap:'0',strength:'2',toughness:'0',specialCode:''}
       ,{id:'6',title:'Super Bowl Ring',subtext:'',picURL:'',health:'0',ap:'0',strength:'2',toughness:'0',specialCode:''}
       ,{id:'7',title:'Federal Donut',subtext:'',picURL:'',health:'0',ap:'1',strength:'0',toughness:'1',specialCode:''}
-      ,{id:'8',title:'Glenn’s Bow Tie',subtext:'',picURL:'',health:'0',ap:'1',strength:'0',toughness:'1',specialCode:''}
-      ,{id:'9',title:'Wooder Ice',subtext:'',picURL:'',health:'1',ap:'0',strength:'0',toughness:'0',specialCode:''}
+      ,{id:'8',title:'Glenn’s Bow Tie',subtext:'',picURL:'"../images/items/pixelbowtie.png"',health:'0',ap:'1',strength:'0',toughness:'1',specialCode:''}
+      ,{id:'9',title:'Wooder Ice',subtext:'',picURL:'"../images/items/watericepixel10.png"',health:'1',ap:'0',strength:'0',toughness:'0',specialCode:''}
     ];
 
     for (var i = 0; i < realItems.length; i++) {
