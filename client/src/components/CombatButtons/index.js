@@ -60,29 +60,37 @@ class UseItemButton extends React.Component {
 }
 
 class PlayerHealthBar extends React.Component {
+  state = {
+    currentPlayerHealth: 0,
+    totalPlayerHealth: 10,
+    percentage: 100
+  }
+
+  
   componentDidMount() {
     setTimeout(
       function() {
-        console.log("playerstats:" + utils.state.playerStats[0].health)
-      }
+        console.log("player health percentage: "+ (utils.state.playerStats[0].health)*100/12)
+        console.log("playerstats:" + utils.state.playerStats[0].health);
+        this.setState({currentPlayerHealth:utils.state.playerStats[0].health,
+        percentage: ((utils.state.playerStats[0].health)*100/12)+'%'
+        })
+       }
       .bind(this),
       5000
     ); 
   }
-    state = {
-      currentPlayerHealth: this.props.currentPlayerHealth,
-      totalPlayerHealth: this.props.totalPlayerHealth,
-      styling: "width:40%"
+   
+  refreshPlayerHealthBar = () => this.setState({ currentPlayerHealth: utils.state.playerStats[0].health, 
+    percentage: ((utils.state.playerStats[0].health)*100/12)
+  })
 
-    };
-     
  
   render() {
     return (
       <div className= "healthBarDiv">
-        
-        <div className= "actualHealth"  style={this.styling}>
-        <p className= "healthNumbers">HP:  / </p>
+        <div className= "actualHealth"  style= {{width:this.state.percentage}}>
+        <p className= "healthNumbers">HP: {this.state.currentPlayerHealth} </p>
         </div>
 
       </div>
