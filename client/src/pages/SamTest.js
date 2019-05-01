@@ -16,7 +16,7 @@ var state = {
   enemyAP: 10,
   enemyToughness: 5,
   enemyStrength: 5,
-  playerHealth: 10,
+  playerHealth: 20,
   playerAP: 10
 };
 
