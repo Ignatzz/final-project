@@ -14,7 +14,7 @@ import * as utils from "./pages/SamTest";
 import DataResetGet from "./pages/DataResetGet";
 import Combat from "./pages/Combat"
 
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
