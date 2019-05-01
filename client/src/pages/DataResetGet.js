@@ -91,10 +91,10 @@ class DataResetGet extends Component {
     console.log("Making user");
     var req = {
       name: "Player 1",
-      health: "10",
+      health: "20",
       ap: "10",
-      strength: "10",
-      toughness: "10"
+      strength: "8",
+      toughness: "12"
     }
     API.savePlayer(req)
       .then();
