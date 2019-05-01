@@ -15,6 +15,7 @@
     height: 80%;
     width: 320px;
     display: none;
+    margin-left: 200px;
   }
   .gritty{
     height: 80%;
@@ -29,17 +30,19 @@
     min-width: 40%;
     bottom: 0px;
     left: 100%;
+    right: 100%;
+    margin-left: 200px;
   }
 
   @media only screen and (max-width: 600px) {
-  
-     
+
+
      .touristDiv, .mummerDiv, .frolfDiv, .grittyDiv{
        width: 293px;
        left: 650px;
-    
+
      }
-    
-   
-   
+
+
+
    }

@@ -70,13 +70,11 @@ function checkDeath(damage) {
   if (state.playerStats[0].health <= 0) {
     alert("You were hit with "+damage+" damage! You have been slain!");
 
-
     // Route to game over screen
     window.location.href = '/gameover';
 
-
   } else {
-    alert("You were hit with "+damage+" damage! You're health is now at "+state.playerStats[0].health+"!");
+    alert("You were hit with *"+damage+"* damage! You're health is now at "+state.playerStats[0].health+"HP!");
 
 
     // Close enemy attack modal and return to attack screen
@@ -92,6 +90,8 @@ export function regularAttack() {
   var damage = ((Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
   state.enemyHealth = state.enemyHealth - damage;
 
+  alert("You flail your arms like wild and do *"+damage+"* damage on the enemy!");
+
   if (state.enemyHealth <= 0) {
 
     state.xp += 200;
@@ -101,18 +101,20 @@ export function regularAttack() {
 
   } else {
 
-    alert("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
+    alert("Your foe is now at "+state.enemyHealth+"HP!");
     enemyAttacks();
 
   }
 }
 export function specialAttack() {
 
-  if (parseInt(state.playerStats[0].ap) >= 7) {
+  if (parseInt(state.playerStats[0].ap) >= 5) {
 
     state.playerStats[0].ap = parseInt(state.playerStats[0].ap)-7;
     var damage = ((2*Math.floor(Math.random()*6)) + (state.playerStats[0].strength/2)) - (state.enemyToughness/2);
     state.enemyHealth = state.enemyHealth - damage;
+
+    alert("You flail your arms like wild and do *"+damage+"* damage on the enemy!");
 
     if (state.enemyHealth <= 0) {
 
@@ -123,13 +125,13 @@ export function specialAttack() {
 
     } else {
 
-      alert("The enemy was attacked with a damage of "+damage+" and is now at "+state.enemyHealth);
+      alert("Your foe is now at "+state.enemyHealth+"HP!");
       enemyAttacks();
 
     }
   } else {
 
-    alert("You don't have enough AP to use your special attack! ("+state.playerStats[0].ap+"/7)");
+    alert("You don't have enough AP to use your special attack! ("+state.playerStats[0].ap+"/5)");
     return;
 
   }
@@ -151,19 +153,15 @@ function fightsOver() {
   spcBtn[0].style.display = "none";
   itmBtn[0].style.display = "none";
 
-  var tourist = document.getElementsByClassName('touristDiv');
   var hpBar = document.getElementsByClassName('healthBarDiv');
   var apBar = document.getElementsByClassName('APBarDiv');
-  tourist[0].style.display = "none";
   hpBar[0].style.display = "none";
   apBar[0].style.display = "none";
 
-  var tourist = document.getElementsByClassName('touristDiv');
-  var hpBar = document.getElementsByClassName('healthBarDiv');
-  var apBar = document.getElementsByClassName('APBarDiv');
+  var frolfer = document.getElementsByClassName('frolfBoy');
+  var tourist = document.getElementsByClassName('tourist');
+  frolfer[0].style.display = "none";
   tourist[0].style.display = "none";
-  hpBar[0].style.display = "none";
-  apBar[0].style.display = "none";
 
 }
 
@@ -179,35 +177,31 @@ function attackEnemy(type) {      // Not used:
   var atkBtn = document.getElementsByClassName('regAttackButton');
   var spcBtn = document.getElementsByClassName('specAttackButton');
   var itmBtn = document.getElementsByClassName('useItemButton');
-  console.log(atkBtn);
-  console.log(spcBtn);
-  console.log(itmBtn);
   atkBtn[0].style.display = "inline-block";
   spcBtn[0].style.display = "inline-block";
   itmBtn[0].style.display = "inline-block";
 
+  var hpBar = document.getElementsByClassName('healthBarDiv');
+  var apBar = document.getElementsByClassName('APBarDiv');
+  hpBar[0].style.display = "inline-block";
+  apBar[0].style.display = "inline-block";
+
   if (type === 'frolfer') {
 
-    var frolfer = document.getElementsByClassName('frolfDiv');
-    var hpBar = document.getElementsByClassName('healthBarDiv');
-    var apBar = document.getElementsByClassName('APBarDiv');
+    var frolfer = document.getElementsByClassName('frolfBoy');
+    console.log(frolfer)
     frolfer[0].style.display = "inline-block";
-    hpBar[0].style.display = "inline-block";
-    apBar[0].style.display = "inline-block";
 
   } else if (type === 'tourist') {
 
-    var tourist = document.getElementsByClassName('touristDiv');
-    var hpBar = document.getElementsByClassName('healthBarDiv');
-    var apBar = document.getElementsByClassName('APBarDiv');
+    var tourist = document.getElementsByClassName('tourist');
     tourist[0].style.display = "inline-block";
-    hpBar[0].style.display = "inline-block";
-    apBar[0].style.display = "inline-block";
 
   }
 }
 
 export function useItem(item) {
+
   alert("You just used "+item.title+"!");
   var health = parseInt(item.health);
   var ap = parseInt(item.ap);
@@ -235,18 +229,20 @@ export function useItem(item) {
   }
   alert(message);
   checkDeath();
+
 }
 
 // Location 1 choices
 export function takeNap() {
+
   var randProb = Math.floor(Math.random() * 101)-1;
-  if (randProb <= 80) {
+  if (randProb <= 50) {
 
     state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
     alert("You rested well and gained 2 AP! You are now at "+state.playerStats[0].ap+"!");
     return "ap";
 
-  } else if (randProb <= 90) {
+  } else if (randProb <= 60) {
 
     var randomEvent = getRandomEvent();
     return randomEvent;
@@ -260,16 +256,14 @@ export function takeNap() {
 }
 export function bikeRide() {
 
-  // window.history.push("/");
-
   var randProb = Math.floor(Math.random() * 101)-1;
-  if (randProb <= 80) {
+  if (randProb <= 20) {
 
     state.playerStats[0].ap = parseInt(state.playerStats[0].ap) + 2;
     alert("The bike trip energized you with 2 AP! You are now at "+state.playerStats[0].ap+"!");
     return "ap";
 
-  } else if (randProb <= 90) {
+  } else if (randProb <= 80) {
 
     var randomEvent = getRandomEvent();
     return randomEvent;
@@ -300,9 +294,7 @@ export function playFrisbee() {
 
   } else {
 
-    // Find item
     var randomItem = getRandomItem();
-    state.playerItems.add(randomItem);
     return randomItem;
 
   }
@@ -311,7 +303,7 @@ export function playFrisbee() {
 export function getRandomItem() {
 
   var rand = Math.floor(Math.random() * state.items.length);
-  alert('You just picked up an'+state.items[rand].title);
+  alert('You Found an '+state.items[rand].title+"!");
   state.playerItems.push(state.items[rand]);
   console.log(state);
   return state.items[rand];
@@ -319,19 +311,66 @@ export function getRandomItem() {
 }
 export function getRandomEvent() {
   var rand = Math.floor(Math.random() * state.events.length);
-  alert('Got random event: '+state.events[rand].title);
+  // alert('Got random event: '+state.events[rand].title);
   console.log(state.events[rand]);
-  // Need function to change stats
+
+  var eventR = state.events[rand];
+
+  var health    = parseInt(state.events[rand].health);
+  var ap        = parseInt(state.events[rand].ap);
+  var strength  = parseInt(state.events[rand].strength);
+  var toughness = parseInt(state.events[rand].toughness);
+
+  state.playerStats[0].health     = parseInt(state.playerStats[0].health) + health;
+  state.playerStats[0].ap         = parseInt(state.playerStats[0].ap) + ap;
+  state.playerStats[0].strength   = parseInt(state.playerStats[0].strength) + strength;
+  state.playerStats[0].toughness  = parseInt(state.playerStats[0].toughness) + toughness;
 
 
+  if (health == 0 && ap == 0 && strength == 0 && toughness == 0) {
+    var message = state.events[rand].title+' has no effect on you!';
+  } else {
+    var message = state.events[rand].title+'! It\'s effects on you are:';
+  }
 
+  if (health != 0) {
+    if (health > 0) {
+      message = message + '     +' + health +' HP';
+    } else {
+      message = message + '     -' + health +' HP';
+    }
+  }
+  if (ap != 0) {
+    if (ap > 0) {
+      message = message + '     +' + ap +' AP';
+    } else {
+      message = message + '     -' + ap +' AP';
+    }
+  }
+  if (strength != 0) {
+    if (strength > 0) {
+      message = message + '     +' + strength +' Strength';
+    } else {
+      message = message + '     -' + strength +' Strength';
+    }
+  }
+  if (toughness != 0) {
+    if (toughness > 0) {
+      message = message + '     +' + toughness +' Toughness';
+    } else {
+      message = message + '     -' + toughness +' Toughness';
+    }
+  }
+  alert(message);
+  var ps = state.playerStats[0];
+  alert('Your Stats are now:  '+ps.health+' HP, '+ps.ap+' AP, '+ps.strength+' Strength, '+ps.toughness+' Toughness');
 
+  if (state.playerStats[0].health <= 0) {
+    alert("The event has killed you!");
 
-
-
-
-
-
+    // Route to game over screen
+    window.location.href = '/gameover';
+  }
 
   return state.events[rand];
 }

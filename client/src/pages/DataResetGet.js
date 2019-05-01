@@ -141,15 +141,21 @@ class DataResetGet extends Component {
   };
   makeEvent = (index) => {
     // console.log("Making event");
+
+    var hp = (Math.floor(Math.random()*2)).toString();
+    var ap = (Math.floor(Math.random()*2)).toString();
+    var strength = (Math.floor(Math.random()*2)).toString();
+    var toughness = (Math.floor(Math.random()*2)).toString();
+
     var req = {
       id: index,
       title: "Event",
       subtext: "subtext",
       picURL: "picURL",
-      health: "health",
-      ap: "ap",
-      strength: "strength",
-      toughness: "toughness",
+      health: hp,
+      ap: ap,
+      strength: strength,
+      toughness: toughness,
       specialCode: "specialCode"
     }
     API.saveEvent(req)
@@ -197,15 +203,20 @@ class DataResetGet extends Component {
   };
   makeItem = (index) => {
     // console.log("Making event");
+    var hp = (Math.floor(Math.random()*2)).toString();
+    var ap = (Math.floor(Math.random()*2)).toString();
+    var strength = (Math.floor(Math.random()*2)).toString();
+    var toughness = (Math.floor(Math.random()*2)).toString();
+
     var req = {
       id: index,
       title: "Item",
       subtext: "subtext",
       picURL: "picURL",
-      health: "health",
-      ap: "ap",
-      strength: "strength",
-      toughness: "toughness",
+      health: hp,
+      ap: ap,
+      strength: strength,
+      toughness: toughness,
       specialCode: "specialCode"
     }
     API.saveItem(req)
